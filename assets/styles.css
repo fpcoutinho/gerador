@@ -1,0 +1,203 @@
+@import url('https://fonts.googleapis.com/css?family=Pacifico');
+
+body{
+    background-color: #0f121f;
+    color: #fff;
+    background-image: url(/static/stars.png);
+    background-repeat-y: no-repeat;
+    padding: 0 1px 0 1px;
+}
+
+body*{
+    font-family: Ubuntu;
+}
+
+p.obs{
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    width: 300px;
+    word-wrap: break-word;
+}
+
+p.obs:hover{
+    white-space: pre-wrap;
+    overflow: visible;
+    width: 100%;
+}
+
+img{
+    width: 60px;
+    height: auto;
+    vertical-align: bottom;
+}
+
+.loginheader{
+    text-align: center;
+}
+
+.visualizalogin{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.login{
+    width: 300px;
+    border: 1px solid #ffffff4f;
+    align-self: center;
+    text-align: center;
+    margin: 20px;
+    padding: 20px;
+}
+
+.compromissos{
+    width: 100%;
+    display: table;
+    border: 1px solid #ffffff4f;
+}
+.compromisso{
+    width: 350px;
+    border-radius: 20px;
+    float: left;
+    box-shadow: -2px 3px #a3d1e654;
+    border: 2px solid #a3d1e6;
+    margin: 30px;
+    padding: 20px;
+}
+
+.compromisso-visualiza-wrapper{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.compromisso-visualiza{
+    width: 500px;
+    border-radius: 20px;
+    align-self: center;
+    text-align: center;
+    border: 2px solid #a3d1e6;
+    margin: 40px;
+    padding: 30px;
+}
+
+
+h1 a{
+    color: #fff;
+    font-family: Pacifico;
+    font-weight: normal;
+    font-size: 30px;
+    margin: 0;
+}
+
+
+h2,h3,h4,h5{
+    font-family: Helvetica;
+    font-weight: normal;
+    margin: 0;
+}
+
+a, a:hover, a:visited{
+    text-decoration: none;
+}
+
+h2 a{
+    color: #fff;
+}
+
+a:hover{
+    color: #d3d1d1
+}
+
+.wrapper{
+    margin: 0 auto;
+    padding: 20px;
+}
+
+header{
+    display: grid;
+    align-self: center;
+    grid-template-columns: 1fr 1fr;
+    padding: 20px 0;
+}
+
+nav{
+    justify-self: end;
+}
+
+nav li{
+    display: inline-block;
+    margin-left: 20px;
+}
+
+.botao-icon{
+    background: none;
+    color: #fff;
+    cursor: pointer;
+    size-adjust: 2px;
+    cursor: pointer;
+}
+
+.glyphicon:hover{
+    color: #d3d1d1;
+}
+
+.meuscompromissosdiv{
+    display: inline-block;
+}
+
+.criaCompromisso{
+    display: block;
+    width: 5000px;
+    border: 1px solid #ffffff4f;
+    margin: 20px;
+    padding: 20px;
+    text-align: center;
+    align-items: center;
+}
+
+.site-form input, .site-form textarea, .site-form select{
+    color: #0f121f;
+    display: block;
+    margin: 20px 0 10px 0;
+    text-align: center;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 10px;
+}
+
+
+.helptext, .helptext ul{
+    margin: 0 auto 20px;
+    color: rgb(255, 0, 0);
+    font-size: 0.85em;
+    display: block;
+}
+
+.help-block strong, .errorlist li{
+    padding: 10px;
+    border: 1px solid #ff5722;
+    color: #ff5722;
+    margin: 10px 0;
+}
+
+.errormsg{
+    padding: 10px;
+    border: 1px solid #ff5722;
+    color: #ff5722;
+    margin: 10px 0;
+}
+
+.btn-outline-secondary{
+    background-color: #ebebeb;
+    color:#44494c;
+}
+
+.btn.btn-default.btn-sm{
+    color: #fff;
+    background-color: transparent;
+    border-color: transparent;
+    margin: 40px 0 0 0;
+}
