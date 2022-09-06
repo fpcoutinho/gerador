@@ -12,7 +12,7 @@ class CriaRelatorioForm(forms.ModelForm):
         
 
 
-class EditaCompromissoForm(forms.ModelForm):
+class EditaRelatorioForm(forms.ModelForm):
     data = forms.DateTimeField(widget=DateTimeInput(format='%d/%m/%Y %H:%M', attrs={'type': 'datetime-local'}), input_formats='%d/%m/%Y %H:%M')
     
     class Meta:
