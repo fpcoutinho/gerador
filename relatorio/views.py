@@ -13,13 +13,13 @@ from django.contrib.auth.decorators import login_required
 @login_required(login_url="/accounts/login/")
 def relatorio_list(request):
     usuario = request.user
-    relatorios = Relatorio.objects.filter(autor=usuario).order_by('data_inicial')
+    relatorios = Relatorio.objects.filter(autor=usuario).order_by('data')
     return render(request, 'relatorio/relatorio_list.html', {'relatorios': relatorios})
 
 
 @login_required(login_url="/accounts/login/")
-def relatorio_visualiza(request, comp_id):
-    relatorio = Relatorio.objects.get(id=comp_id)
+def relatorio_visualiza(request, rel_id):
+    relatorio = Relatorio.objects.get(id=rel_id)
     now = timezone.now()
     return render(request, 'relatorio/relatorio_visualiza.html', {'relatorio': relatorio})
 
@@ -31,28 +31,23 @@ def relatorio_cria(request):
         if form.is_valid():
             usuario = request.user
             relatorios = Relatorio.objects.filter(autor=usuario)
-            try:
-                if(checaData(request, relatorios)):
-                    instance = form.save(commit=False)
-                instance.autor = usuario
-                instance.save()
-                return redirect('relatorio:list')
-            except forms.ValidationError as e:
-                form.add_error('data_final', e.message)
-            return render(request, 'relatorio/relatorio_cria.html', {'form':form})
+            instance = form.save(commit=False)
+            instance.autor = usuario
+            instance.save()
+            return redirect('relatorio:list')
     else:
         form = rel_forms.CriaRelatorioForm()
     return render(request, 'relatorio/relatorio_cria.html', {'form': form})
     
     
 @login_required(login_url="/accounts/login/")
-def relatorio_edita(request, comp_id):
-    relatorio = Relatorio.objects.get(id=comp_id)
+def relatorio_edita(request, rel_id):
+    relatorio = Relatorio.objects.get(id=rel_id)
     form = rel_forms.EditaRelatorioForm(request.POST or None, instance=relatorio)
     if form.is_valid():
         usuario = relatorio.autor
         relatorios = Relatorio.objects.filter(autor=usuario)
-        relatorios2 = relatorios.exclude(id=comp_id)
+        relatorios2 = relatorios.exclude(id=rel_id)
         instance = form.save(commit=False)
         instance.save()
         return redirect('relatorio:list')
@@ -61,8 +56,8 @@ def relatorio_edita(request, comp_id):
     
 
 @login_required(login_url="/accounts/login/")
-def relatorio_deleta(request, comp_id):
-    relatorio = Relatorio.objects.get(id=comp_id)
+def relatorio_deleta(request, rel_id):
+    relatorio = Relatorio.objects.get(id=rel_id)
     relatorio.delete()
     messages.success(request, "Relatorio excluído!")
     return redirect('relatorio:list')

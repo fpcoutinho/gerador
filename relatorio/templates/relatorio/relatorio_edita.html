@@ -1,0 +1,15 @@
+{% extends 'base_layout.html'%}
+
+
+{% block content %}
+        <h2 class="loginheader">Editar Relatório'<span style="color:#a3d1e6">{{ relatorio.nome }}</span>'</h2>
+        <div class="compromisso-visualiza-wrapper">
+        <div class="compromisso-visualiza">
+                <form class="site-form" action="" method="post">
+                        {% csrf_token %}
+                        {{ form }}
+                        <input type="submit" value="Atualizar">
+                </form>
+        </div>
+        </div>
+{% endblock %}

@@ -1,0 +1,15 @@
+{% extends 'base_layout.html'%}
+
+
+{% block content %}
+        <h2 class="loginheader">Criar Relatório</h2>
+        <div class="compromisso-visualiza-wrapper">
+            <div class="criaCompromisso">
+                <form class="site-form" action="{% url 'relatorio:cria' %}" method="post">
+                    {% csrf_token %}
+                    {{ form }}
+                    <input type="submit" value="Criar">
+                </form>
+        </div>
+    </div>
+{% endblock %}

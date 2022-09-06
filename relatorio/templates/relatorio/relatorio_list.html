@@ -1,0 +1,29 @@
+{% extends 'base_layout.html'%}
+
+{% block content %}
+    <header>
+        <div class="meuscompromissosdiv">
+            <h2>Relatórios</h2>
+        </div>
+        <nav>
+            <li>
+                <a class="botao-icon" href="{% url 'relatorio:cria' %}">
+                    <span class="glyphicon glyphicon-plus-sign"></span>
+                    Novo
+                </a>
+            </li>
+        </nav>
+    </header>
+
+    <div class="compromissos">
+            {% for relatorio in relatorios %}
+                <div class="compromisso">
+                    <p><h2><a href="{% url 'relatorio:visualiza' rel_id=relatorio.id %}">{{ relatorio.nome }}</a></h2></p>
+                    <p>Data: {{ relatorio.data }}</p>
+                    <p>Local: {{ relatorio.local }}</p>
+                    <p class="obs">Obs: {{ relatorio.obs }}</p>
+                    <p></p>
+                </div>
+            {% endfor %}
+        </div>
+{% endblock %}

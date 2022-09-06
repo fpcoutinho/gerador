@@ -1,0 +1,27 @@
+{% extends 'base_layout.html'%}
+
+{% block content %}
+<header>
+        <h2>Meu Relatório</h2>
+        <nav>
+        <li>
+                <a class="botao-icon" href="{% url 'relatorio:edita' rel_id=relatorio.id %}">
+                        <span class="glyphicon glyphicon-edit"></span> edit
+                </a>
+                <a class="botao-icon" href="{% url 'relatorio:deleta' rel_id=relatorio.id %}">
+                        <span class="glyphicon glyphicon-trash"></span> delete
+                </a>
+        </li>
+        </nav>
+</header>
+
+<div class="compromisso-visualiza-wrapper">
+        <div class="compromisso-visualiza">
+                <p><h2>{{ relatorio.nome }}</h2></p>
+                <p>Data: {{ relatorio.data }}</p>
+                <p>Local: {{ relatorio.local }}</p>
+                <p>{{ relatorio.obs }}</p>
+        </div>
+</div>
+
+{% endblock %}
