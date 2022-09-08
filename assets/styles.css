@@ -141,6 +141,7 @@ nav li{
     cursor: pointer;
 }
 
+
 .glyphicon:hover{
     color: #d3d1d1;
 }
@@ -202,4 +203,8 @@ nav li{
     background-color: transparent;
     border-color: transparent;
     margin: 40px 0 0 0;
+}
+
+#id_especialista{
+    align-items:baseline;
 }
