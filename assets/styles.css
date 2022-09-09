@@ -205,6 +205,6 @@ nav li{
     margin: 40px 0 0 0;
 }
 
-#id_especialista{
-    
+ul#id_especialista li{
+    display: inline-block;
 }
