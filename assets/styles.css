@@ -205,6 +205,34 @@ nav li{
     margin: 40px 0 0 0;
 }
 
+.site-form div{
+    border: 1px solid #ffffff4f;
+    align-self: center;
+    text-align: center;
+    align-items: center;
+    padding-bottom: 5px;
+}
+
+.site-form div div{
+    border: none;
+    width: 180px;
+    display: inline-block;
+    margin: 5px;
+    padding: 5px;
+}
+
+.site-form p label{
+    font-size: 14px;
+}
+
+.site-form div label{
+    font-size: 12px;
+}
+
+.site-form div div label{
+
+}
+
 ul#id_especialista li{
     display: inline-block;
 }
