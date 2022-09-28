@@ -7,7 +7,7 @@
             <div class="criaCompromisso">
                 <form class="site-form" action="{% url 'relatorio:cria' %}" method="post">
                     {% csrf_token %}
-                    {{ form }}
+                    {{ form.as_p }}
                     <input type="submit" value="Criar">
                 </form>
         </div>
