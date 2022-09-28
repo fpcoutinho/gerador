@@ -7,8 +7,10 @@ class Relatorio(models.Model):
 
     nome = models.CharField(max_length=100)
     local = models.CharField(max_length=100)
-    obs = models.TextField(blank=True)
     data = models.DateTimeField()
+    temperatura = models.IntegerField()
+    clima = models.CharField(max_length=100)
+    responsaveis = models.TextField(blank=True)
     especialista = models.CharField(max_length=4, default="Sim")
     autor = models.ForeignKey(User, default=None, on_delete=models.CASCADE)
 
