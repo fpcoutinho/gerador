@@ -6,7 +6,6 @@ from django.contrib.auth.models import User
 class Relatorio(models.Model):
 
     autor = models.ForeignKey(User, default=None, on_delete=models.CASCADE)
-    nome = models.CharField(max_length=100)
     local = models.CharField(max_length=100)
     data = models.DateTimeField()
     temperatura = models.IntegerField()
@@ -17,7 +16,6 @@ class Relatorio(models.Model):
     equipamentos = models.CharField(max_length=100, default="Sim")
     sinalizacao = models.CharField(max_length=100, default="Sim")
     desligamento = models.CharField(max_length=4, default="Sim")
-    especialista = models.CharField(max_length=4, default="Sim")
     integridade = models.CharField(max_length=4, default="Sim")
     dialogo = models.CharField(max_length=4, default="Sim")
     curso_nr = models.CharField(max_length=4, default="Sim")

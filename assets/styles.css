@@ -1,11 +1,11 @@
 @import url('https://fonts.googleapis.com/css?family=Pacifico');
 
 body{
-    background-color: #0f121f;
-    color: #fff;
-    background-image: url(/static/stars.png);
-    background-repeat-y: no-repeat;
+    background-color: #ffffff;
+    color: #005b88;
     padding: 0 1px 0 1px;
+    font-family: Pacifico;
+    font-size: medium;
 }
 
 body*{
@@ -16,8 +16,9 @@ p.obs{
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
-    width: 300px;
+    width: 330px;
     word-wrap: break-word;
+    padding-bottom: 1%;
 }
 
 p.obs:hover{
@@ -44,24 +45,27 @@ img{
 
 .login{
     width: 300px;
-    border: 1px solid #ffffff4f;
+    border: 1px solid #005b88;
     align-self: center;
     text-align: center;
     margin: 20px;
     padding: 20px;
+    align-items: center;
+    display: block;
 }
+
 
 .compromissos{
     width: 100%;
     display: table;
-    border: 1px solid #ffffff4f;
+    border: 1px solid #005b88;
 }
 .compromisso{
     width: 350px;
     border-radius: 20px;
     float: left;
-    box-shadow: -2px 3px #a3d1e654;
-    border: 2px solid #a3d1e6;
+    box-shadow: -2px 3px #005b88bd;
+    border: 2px solid #005b88;
     margin: 30px;
     padding: 20px;
 }
@@ -77,14 +81,12 @@ img{
     border-radius: 20px;
     align-self: center;
     text-align: center;
-    border: 2px solid #a3d1e6;
+    border: 2px solid #005b88;
     margin: 40px;
     padding: 30px;
 }
 
-
 h1 a{
-    color: #D5E9F3;
     font-family: Pacifico;
     font-weight: normal;
     font-size: 30px;
@@ -94,21 +96,21 @@ h1 a{
 
 h2,h3,h4,h5{
     font-family: Pacifico;
-    color: #D5E9F3;
+    color: #005b88;
     font-weight: normal;
     margin: 0;
+}
+
+a{
+    color: #005b88;
 }
 
 a, a:hover, a:visited{
     text-decoration: none;
 }
 
-h2 a{
-    color: #D5E9F3;
-}
-
 a:hover{
-    color: #d3d1d1
+    color: #0082c4;
 }
 
 .wrapper{
@@ -135,7 +137,7 @@ nav li{
 .botao-icon{
     background: none;
     font-family: Pacifico;
-    color: #D5E9F3;
+    color: #005b88;
     cursor: pointer;
     size-adjust: 2px;
     cursor: pointer;
@@ -143,7 +145,7 @@ nav li{
 
 
 .glyphicon:hover{
-    color: #d3d1d1;
+    color: #0082c4;
 }
 
 .meuscompromissosdiv{
@@ -153,24 +155,35 @@ nav li{
 .criaCompromisso{
     display: block;
     width: 5000px;
-    border: 1px solid #ffffff4f;
+    border: 1px solid #005b88;
     margin: 20px;
     padding: 20px;
-    text-align: center;
-    align-items: center;
+    padding-left: 3%;
 }
 
-.site-form input, .site-form textarea, .site-form select{
+.site-form input, .site-form textarea, .siteform select{
     color: #0f121f;
-    display: block;
-    margin: 20px 0 10px 0;
-    text-align: center;
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
+    background-color: #f8fcff;
+    margin: 20px 10px 10px 0;
     padding: 10px;
+    text-align: center;
 }
 
+
+.criaCompromisso input, .criaCompromisso textarea, .criaCompromisso select{
+    display:inline-table;
+    margin-right: auto;
+}
+
+.criaCompromisso input[value="Criar"]{
+    margin-left: 47%;
+}
+
+.login input, .login textarea, .login select{
+    display:block;
+    margin-right: auto;
+    margin-left: auto;
+}
 
 .helptext, .helptext ul{
     margin: 0 auto 20px;
@@ -194,20 +207,21 @@ nav li{
 }
 
 .btn-outline-secondary{
-    background-color: #ebebeb;
-    color:#44494c;
+    background-color: #548daa;
+    color:#fff;
 }
 
 .btn.btn-default.btn-sm{
-    color: #fff;
+    color: #005b88;
     background-color: transparent;
     border-color: transparent;
     margin: 40px 0 0 0;
 }
 
 .site-form div{
-    border: 1px solid #ffffff4f;
-    align-self: center;
+    border: 1px solid #005b88;
+    width: 70%;
+    background-color: #f8fcff;
     text-align: center;
     align-items: center;
     padding-bottom: 5px;
@@ -221,8 +235,12 @@ nav li{
     padding: 5px;
 }
 
+.site-form p{
+    display: grid;
+}
+
 .site-form p label{
-    font-size: 14px;
+    font-size: 15px;
 }
 
 .site-form div label{

@@ -17,14 +17,13 @@
 
     <div class="compromissos">
             {% for relatorio in relatorios %}
+            <a href="{% url 'relatorio:visualiza' rel_id=relatorio.id %}">
                 <div class="compromisso">
-                    <p><h2><a href="{% url 'relatorio:visualiza' rel_id=relatorio.id %}">{{ relatorio.nome }}</a></h2></p>
                     <p>Data: {{ relatorio.data }}</p>
                     <p>Local: {{ relatorio.local }}</p>
-                    <p>Feito por especialistas: {{ relatorio.especialista }}</p>
                     <p class="obs">Responsáveis: {{ relatorio.responsaveis }}</p>
-                    <p></p>
                 </div>
+            </a>
             {% endfor %}
         </div>
 {% endblock %}
