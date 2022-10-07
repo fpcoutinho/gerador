@@ -54,6 +54,10 @@ img{
     display: block;
 }
 
+.login input, .compromisso-visualiza, .criaCompromisso{
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+
 
 .compromissos{
     width: 100%;
@@ -74,6 +78,7 @@ img{
     display: flex;
     align-items: center;
     justify-content: center;
+    justify-self: center;
 }
 
 .compromisso-visualiza{
@@ -84,11 +89,15 @@ img{
     border: 2px solid #005b88;
     margin: 40px;
     padding: 30px;
+    font-size: 17px;
+}
+.compromisso-visualiza p{
+    display: table;
+    text-justify: auto;
 }
 
 
 h1 a{
-    font-family: Pacifico;
     font-weight: normal;
     font-size: 30px;
     margin: 0;
@@ -96,7 +105,6 @@ h1 a{
 
 
 h2,h3,h4,h5{
-    font-family: Pacifico;
     color: #005b88;
     font-weight: normal;
     margin: 0;
@@ -178,6 +186,8 @@ nav li{
 
 .criaCompromisso input[value="Criar"], .criaCompromisso input[value="Atualizar"]{
     margin-left: 47%;
+    color: #005b88;
+    font-family: Pacifico;
 }
 
 .login input, .login textarea, .login select{
@@ -208,8 +218,9 @@ nav li{
 }
 
 .btn-outline-secondary{
-    background-color: #548daa;
-    color:#fff;
+    background-color: #005b88;
+    color: #f8fcff;
+    border: 1px solid #005b88;
 }
 
 .btn.btn-default.btn-sm{
