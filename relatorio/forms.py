@@ -10,7 +10,7 @@ class CriaRelatorioForm(forms.ModelForm):
     clima = forms.CharField(label='Condições Climáticas:')
     temperatura = forms.IntegerField(label='Temperatura (em °C):')
 
-    quali = [('EE','Engenheiro Eletricista'), ('TE', 'Técnico Eletrotécnico'), ('EL','Eletricista'), ('AL', 'Aluno de curso profissionalizante')]
+    quali = [('Engenheiro Eletricista','Engenheiro Eletricista'), ('Técnico Eletrotécnico', 'Técnico Eletrotécnico'), ('Eletricista','Eletricista'), ('Aluno de curso profissionalizante', 'Aluno de curso profissionalizante')]
     Qualificacao_Profissional = forms.ChoiceField(choices=quali, widget=forms.RadioSelect, label='Qual a qualificação profissional dos responsáveis pela inspeção?')
     
     radio=[('Sim','Sim'), ('Não','Não')]
@@ -19,15 +19,15 @@ class CriaRelatorioForm(forms.ModelForm):
     curso_nr = forms.ChoiceField(choices=radio, widget=forms.RadioSelect, label='Um ou mais executores da inspeção possui curso NR-10?')
     conferido = forms.ChoiceField(choices=radio, widget=forms.RadioSelect, label='O serviço foi preliminarmente conferido?')
     
-    risk = [('QD','Queda'), ('EX', 'Explosão'), ('ER','Ergonômico'), ('AP', 'Animais Peçonhentos'), ('AV','Arco Voltaico'), ('AT','Atropelamento'), ('RU','Ruído'), ('CH','Choque')]
+    risk = [('Queda','Queda'), ('Explosão', 'Explosão'), ('Ergonômico','Ergonômico'), ('Animais Peçonhentos', 'Animais Peçonhentos'), ('Arco Voltaico','Arco Voltaico'), ('Atropelamento','Atropelamento'), ('Ruído','Ruído'), ('Choque','Choque')]
     riscos = forms.MultipleChoiceField(choices=risk, widget=forms.CheckboxSelectMultiple(), label='Quais riscos foram detectados?')
 
-    eqp = [('CP','Capacete'), ('MI','Manga Isolante'), ('BD', 'Botina Dielétrica'), ('LC','Luva de Cobertura'), ('OP','Óculos de Proteção'), ('PA','Protetor Auricular'), ('LB','Luva de Borracha Isolante'), ('CS','Cinto de Segurança')]
+    eqp = [('Capacete','Capacete'), ('Manga Isolante','Manga Isolante'), ('Botina Dielétrica', 'Botina Dielétrica'), ('Luva de Cobertura','Luva de Cobertura'), ('Óculos de Proteção','Óculos de Proteção'), ('Protetor Auricular','Protetor Auricular'), ('Luva de Borracha Isolante','Luva de Borracha Isolante'), ('Cinto de Segurança','Cinto de Segurança')]
     equipamentos = forms.MultipleChoiceField(choices=eqp, widget=forms.CheckboxSelectMultiple(), label='Quais equipamentos de segurança serão utilizados?')
 
     desligamento = forms.ChoiceField(choices=radio, widget=forms.RadioSelect, label='Este serviço requer desligamento ou bloqueio de equipamento ou rede?')
 
-    silz = [('CN','Cone'),('GF','Giroflex'),('FI','Fita para Isolamento da área'), ('SS','Sinaleira Sonora'), ('CV','Cavaletes'), ('NN','Nenhum')]
+    silz = [('Cone','Cone'),('Giroflex','Giroflex'),('Fita para Isolamento da área','Fita para Isolamento da área'), ('Sinaleira Sonora','Sinaleira Sonora'), ('Cavaletes','Cavaletes'), ('Nenhum','Nenhum')]
     sinalizacao = forms.MultipleChoiceField(choices=silz, widget=forms.CheckboxSelectMultiple(), label='Este serviço requer sinalização?')
 
     delimitar_area = forms.ChoiceField(choices=radio, widget=forms.RadioSelect, label='Necessita delimitar a área de trabalho?')

@@ -28,6 +28,3 @@ class Relatorio(models.Model):
     cinto_seg = models.CharField(max_length=4, default="Sim")
     requi_seg = models.CharField(max_length=4, default="Sim")
     reavaliacao = models.CharField(max_length=4, default="Sim")
-
-    def __str__(self):
-        return self.nome
