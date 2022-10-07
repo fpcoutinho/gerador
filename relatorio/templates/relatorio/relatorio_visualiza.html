@@ -17,7 +17,28 @@
 
 <div class="compromisso-visualiza-wrapper">
         <div class="compromisso-visualiza">
-                {{ relatorio.riscos }}
+                <p>Data: {{ relatorio.data}}</p>
+                <p>Local: {{ relatorio.local }}</p>
+                <p>Temperatura: {{relatorio.temperatura}} °C</p>
+                <p>Condições Climáticas: {{relatorio.clima}} </p>
+                <p>Responsáveis pela Inspeção:  {{ relatorio.responsaveis }}</p>
+                <p>Qualificação profissional dos responsáveis pela inspeção: {{relatorio.Qualificacao_Profissional}}</p>
+                <p>Os participantes da inspeção estão bem fisicamente e mentalmente? {{relatorio.integridade}}</p>
+                <p>Houve diálogo de segurança? {{relatorio.dialogo}}</p>
+                <p>Um ou mais executores da inspeção possui curso NR-10? {{relatorio.curso_nr}}</p>
+                <p>O serviço foi preliminarmente conferido? {{relatorio.conferido}}</p>
+                <p>Quais riscos foram detectados na inspeção: {{relatorio.riscos}}</p>
+                <p>Quais equipamentos de segurança serão utilizados: {{relatorio.equipamentos}}</p>
+                <p>Este serviço requer desligamento ou bloqueio de equipamento ou rede? {{relatorio.desligamento}}</p>
+                <p>Sinalização requerida para o serviço: {{relatorio.sinalizacao}}</p>
+                <p>Necessita delimitar a área de trabalho? {{relatorio.delimitar_area}}</p>
+                <p>Necessita de auxílio de concessionária local? {{relatorio.auxconces}}</p>
+                <p>Necessário fazer verificação de tensão? {{relatorio.tensao}}</p>
+                <p>A inspeção requer aterramento temporário? {{relatorio.aterramento}}</p>
+                <p>A inspeção será realizada em altura? {{relatorio.altura}}</p>
+                <p>Será necessário se aprisionar à escada e utilização de cinto de segurança? {{relatorio.cinto_seg}}</p>
+                <p>Os requisitos de segurança foram atendidos por todos? {{relatorio.requi_seg}}</p>
+                <p>Houve necessidade de reavaliação das inspeções realizadas? {{relatorio.reavaliacao}}</p>
         </div>
 </div>
 

@@ -6,8 +6,8 @@ from django.contrib.auth.models import User
 class Relatorio(models.Model):
 
     autor = models.ForeignKey(User, default=None, on_delete=models.CASCADE)
-    local = models.CharField(max_length=100)
     data = models.DateTimeField()
+    local = models.CharField(max_length=100)
     temperatura = models.IntegerField()
     clima = models.CharField(max_length=100)
     responsaveis = models.TextField(blank=True)
