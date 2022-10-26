@@ -143,6 +143,10 @@ nav li{
     margin-left: 20px;
 }
 
+.form-inline {
+    display: inline-table;
+}
+
 .botao-icon{
     background: none;
     font-family: Pacifico;
@@ -221,6 +225,12 @@ nav li{
     background-color: #005b88;
     color: #f8fcff;
     border: 1px solid #005b88;
+}
+
+#searchbutton{
+    color: #005b88;
+    background-color: #ffffff;
+    border: 0px;
 }
 
 .btn.btn-default.btn-sm{
