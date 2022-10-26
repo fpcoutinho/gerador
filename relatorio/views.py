@@ -66,3 +66,8 @@ def relatorio_deleta(request, rel_id):
     relatorio.delete()
     messages.success(request, "Relatorio excluído!")
     return redirect('relatorio:list')
+
+@login_required(login_url="/accounts/login/")
+def relatorio_exporta(request, rel_id):
+    relatorio = Relatorio.objects.get(id=rel_id)
+    return redirect('relatorio:list')
