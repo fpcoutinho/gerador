@@ -8,10 +8,6 @@ body{
     font-size: medium;
 }
 
-body*{
-    font-family: Ubuntu;
-}
-
 p.obs{
     white-space: nowrap;
     overflow: hidden;
@@ -238,6 +234,10 @@ nav li{
     background-color: transparent;
     border-color: transparent;
     margin: 40px 0 0 0;
+}
+
+.btn.btn-default.btn-sm:hover{
+    color: #0082c4;
 }
 
 .site-form div{
