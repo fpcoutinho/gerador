@@ -14,11 +14,13 @@ from django.contrib.auth.decorators import login_required
 @login_required(login_url="/accounts/login/")
 def relatorio_list(request):
     usuario = request.user
-    busca = ''
     if(request.method=='POST'):
         busca = request.POST['busca']
-    relatorios = Relatorio.objects.filter(autor=usuario, local__contains=busca).order_by('data')
+        relatorios = Relatorio.objects.filter(autor=usuario, local__contains=busca).order_by('data')
+        return render(request, 'relatorio/relatorio_list.html', {'relatorios': relatorios, 'busca':busca})
+    relatorios = Relatorio.objects.filter(autor=usuario).order_by('data')
     return render(request, 'relatorio/relatorio_list.html', {'relatorios': relatorios})
+    
 
 @login_required(login_url="/accounts/login/")
 def relatorio_visualiza(request, rel_id):

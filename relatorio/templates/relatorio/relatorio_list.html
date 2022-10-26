@@ -22,6 +22,17 @@
         </nav>
     </header>
     <div class="compromissos">
+        {% if not relatorios %}
+            {% if busca %}
+                <br>
+                <p style="margin-left: 20px;">  Sua busca por ' {{ busca }} ' não encontrou resultados.</p>
+                <br>
+            {% else %}
+                <br>
+                <p style="margin-left: 20px;">  Não há nenhum relatório ainda.</p>
+                <br>
+            {% endif %}
+        {% else %}
             {% for relatorio in relatorios %}
             <a href="{% url 'relatorio:visualiza' rel_id=relatorio.id %}">
                 <div class="compromisso">
@@ -31,5 +42,6 @@
                 </div>
             </a>
             {% endfor %}
+        {% endif %}
         </div>
 {% endblock %}
