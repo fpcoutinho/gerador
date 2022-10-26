@@ -9,12 +9,18 @@
             <li>
                 <a class="botao-icon" href="{% url 'relatorio:cria' %}">
                     <span class="glyphicon glyphicon-plus-sign"></span>
-                    Novo
+                    Novo Relatório
                 </a>
+            </li>
+            <li>
+                <form method=POST action="{% url 'home' %}" class="form-inline">
+                    {% csrf_token %}
+                    <input class="form-control me-2" type="search" placeholder="Buscar Relatório" aria-label="Search" name="busca">
+                    <button class="btn-outline-secondary" id="searchbutton" type="submit"><span class="glyphicon glyphicon-search"></span></button>
+                </form>
             </li>
         </nav>
     </header>
-
     <div class="compromissos">
             {% for relatorio in relatorios %}
             <a href="{% url 'relatorio:visualiza' rel_id=relatorio.id %}">
