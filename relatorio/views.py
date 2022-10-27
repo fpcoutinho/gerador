@@ -9,6 +9,11 @@ from . import forms as rel_forms
 from django.contrib import messages
 from django.utils import timezone
 from django.contrib.auth.decorators import login_required
+import os
+from io import BytesIO
+from django.http import FileResponse
+from docxtpl import DocxTemplate
+
 
 
 @login_required(login_url="/accounts/login/")
@@ -70,4 +75,33 @@ def relatorio_deleta(request, rel_id):
 @login_required(login_url="/accounts/login/")
 def relatorio_exporta(request, rel_id):
     relatorio = Relatorio.objects.get(id=rel_id)
-    return redirect('relatorio:list')
+    byte_io = BytesIO()
+    doc = DocxTemplate("\\assets\\template.docx")
+    context = { 
+        'data':relatorio.data,
+        'local':relatorio.local,
+        'temperatura':relatorio.temperatura,
+        'clima':relatorio.clima,
+        'responsaveis':relatorio.responsaveis,
+        'Qualificacao_Profissional':relatorio.Qualificacao_Profissional, 
+        'integridade':relatorio.integridade,
+        'dialogo':relatorio.dialogo,
+        'curso_nr':relatorio.curso_nr,
+        'conferido':relatorio.conferido,
+        'riscos':relatorio.riscos,
+        'equipamentos':relatorio.equipamentos,
+        'desligamento':relatorio.desligamento,
+        'sinalizacao':relatorio.sinalizacao,
+        'delimitar_area':relatorio.delimitar_area,
+        'auxconces':relatorio.auxconces,
+        'tensao':relatorio.tensao,
+        'aterramento':relatorio.aterramento,
+        'altura':relatorio.altura,
+        'cinto_seg':relatorio.cinto_seg,
+        'requi_seg':relatorio.requi_seg,
+        'reavaliacao':relatorio.reavaliacao
+    }
+    doc.render(context)
+    doc.save(byte_io)
+    byte_io.seek(0)
+    FileResponse(byte_io, as_attachment=True, filename=f'generated_{rel_id}.docx')
