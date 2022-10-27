@@ -21,7 +21,7 @@
             <ul>
                 {% if user.is_authenticated %}
                 <li>
-                    <span class="glyphicon glyphicon-user"></span> {{ user }}
+                    <span class="glyphicon glyphicon-user"></span> Bem-vindo, {{ user }}.
                     <form class="logout-link" action="{% url 'accounts:logout' %}" method="post">
                         {% csrf_token %}
                         <button type="submit" class="btn btn-default btn-sm">
