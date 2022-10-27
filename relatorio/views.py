@@ -77,7 +77,8 @@ def relatorio_exporta(request, rel_id):
     byte_io = BytesIO()
     doc = DocxTemplate("C:\\Users\\fpcou\OneDrive\Documentos\workspace\gerador\\relatorio\\assets\\template.docx")
     context = { 
-        'data':relatorio.data,
+        'data':relatorio.data.strftime('%d/%m/%Y'),
+        'hora':relatorio.data.strftime('%H:%M'),
         'local':relatorio.local,
         'temperatura':relatorio.temperatura,
         'clima':relatorio.clima,
