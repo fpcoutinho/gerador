@@ -76,7 +76,7 @@ def relatorio_deleta(request, rel_id):
 def relatorio_exporta(request, rel_id):
     relatorio = Relatorio.objects.get(id=rel_id)
     byte_io = BytesIO()
-    doc = DocxTemplate("\\assets\\template.docx")
+    doc = DocxTemplate("C:\\Users\\fpcou\OneDrive\Documentos\workspace\gerador\\relatorio\\assets\\template.docx")
     context = { 
         'data':relatorio.data,
         'local':relatorio.local,
@@ -104,4 +104,4 @@ def relatorio_exporta(request, rel_id):
     doc.render(context)
     doc.save(byte_io)
     byte_io.seek(0)
-    FileResponse(byte_io, as_attachment=True, filename=f'generated_{rel_id}.docx')
+    return FileResponse(byte_io, as_attachment=True, filename=f'generated_{rel_id}.docx')
