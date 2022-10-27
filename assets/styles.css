@@ -144,12 +144,14 @@ nav li{
 }
 
 .botao-icon{
+    display: table-cell;
     background: none;
     font-family: Pacifico;
     color: #005b88;
     cursor: pointer;
     size-adjust: 2px;
     cursor: pointer;
+    padding-left: 15px;
 }
 
 
@@ -158,7 +160,7 @@ nav li{
 }
 
 .meuscompromissosdiv{
-    display: inline-block;
+    display: inline-table;
 }
 
 .criaCompromisso{
@@ -233,7 +235,6 @@ nav li{
     color: #005b88;
     background-color: transparent;
     border-color: transparent;
-    margin: 40px 0 0 0;
 }
 
 .btn.btn-default.btn-sm:hover{

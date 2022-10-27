@@ -18,17 +18,18 @@
     <header class="wrapper">
         <h1><a href="{% url 'home' %}"><img src="{% static 'logo.png' %}" alt="calendario"/>Gerador de Relatórios</a></h1>
         <nav>
-            <ul>
+            <ul style="margin: 40px 0 0 0;">
                 {% if user.is_authenticated %}
                 <li>
                     <span class="glyphicon glyphicon-user"></span> Bem-vindo, {{ user }}.
+                </li>
+                <li>
                     <form class="logout-link" action="{% url 'accounts:logout' %}" method="post">
                         {% csrf_token %}
                         <button type="submit" class="btn btn-default btn-sm">
                             <span class="glyphicon glyphicon-log-out"></span> Sair
                         </button>
                     </form>
-                    
                 </li>
                 {% else %}
                     <li><a class="botao-icon" href="{% url 'accounts:login' %}">Log in</a></li>
