@@ -1,6 +1,5 @@
 from threading import local
 from django.shortcuts import render
-
 from django.shortcuts import render, redirect
 from django import forms
 from datetime import datetime
