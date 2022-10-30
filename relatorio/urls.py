@@ -10,4 +10,6 @@ urlpatterns = [
     path('edita/<int:rel_id>/', views.relatorio_edita, name="edita"),
     path('exporta/<int:rel_id>/', views.relatorio_exporta, name="exporta"),
     path('criar/', views.relatorio_cria, name="cria"),
+    path('addplanejamento/<int:rel_id>/', views.planejamento_add, name="addplanejamento"),
+    path('editaplanejamento/<int:rel_id>/', views.planejamento_edita, name="editaplanejamento"),
 ]

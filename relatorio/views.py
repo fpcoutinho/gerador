@@ -36,7 +36,7 @@ def relatorio_visualiza(request, rel_id):
 @login_required(login_url="/accounts/login/")
 def relatorio_cria(request):
     if request.method == 'POST':
-        form = rel_forms.CriaRelatorioForm(request.POST)
+        form = rel_forms.FormRelatorioInicial(request.POST)
         if form.is_valid():
             usuario = request.user
             relatorios = Relatorio.objects.filter(autor=usuario)
@@ -45,14 +45,13 @@ def relatorio_cria(request):
             instance.save()
             return redirect('relatorio:list')
     else:
-        form = rel_forms.CriaRelatorioForm()
+        form = rel_forms.FormRelatorioInicial()
     return render(request, 'relatorio/relatorio_cria.html', {'form': form})
-    
     
 @login_required(login_url="/accounts/login/")
 def relatorio_edita(request, rel_id):
     relatorio = Relatorio.objects.get(id=rel_id)
-    form = rel_forms.EditaRelatorioForm(request.POST or None, instance=relatorio)
+    form = rel_forms.FormRelatorioInicial(request.POST or None, instance=relatorio)
     if form.is_valid():
         usuario = relatorio.autor
         relatorios = Relatorio.objects.filter(autor=usuario)
@@ -70,6 +69,7 @@ def relatorio_deleta(request, rel_id):
     relatorio.delete()
     messages.success(request, "Relatorio excluído!")
     return redirect('relatorio:list')
+
 
 @login_required(login_url="/accounts/login/")
 def relatorio_exporta(request, rel_id):
@@ -105,3 +105,32 @@ def relatorio_exporta(request, rel_id):
     doc.save(byte_io)
     byte_io.seek(0)
     return FileResponse(byte_io, as_attachment=True, filename=f'generated_{rel_id}.docx')
+
+@login_required(login_url="/accounts/login/")
+def planejamento_add(request, rel_id):
+    relatorio = Relatorio.objects.get(id=rel_id)
+    if relatorio.conferido != '':
+        return render(request, 'relatorio/relatorio_planejamento_visualiza.html', {'relatorio': relatorio})
+        
+    form = rel_forms.FormRelatorioDePlanejamento(request.POST or None, instance=relatorio)
+    if form.is_valid():
+            usuario = relatorio.autor
+            relatorios = Relatorio.objects.filter(autor=usuario)
+            relatorios2 = relatorios.exclude(id=rel_id)
+            instance = form.save(commit=False)
+            instance.save()
+            return redirect('relatorio:visualiza')
+    return render(request, 'relatorio/relatorio_edita.html', {'relatorio': relatorio,  'form':form})
+
+@login_required(login_url="/accounts/login/")
+def planejamento_edita(request, rel_id):
+    relatorio = Relatorio.objects.get(id=rel_id)
+    form = rel_forms.FormRelatorioDePlanejamento(request.POST or None, instance=relatorio)
+    if form.is_valid():
+        usuario = relatorio.autor
+        relatorios = Relatorio.objects.filter(autor=usuario)
+        relatorios2 = relatorios.exclude(id=rel_id)
+        instance = form.save(commit=False)
+        instance.save()
+        return redirect('relatorio:list')
+    return render(request, 'relatorio/relatorio_edita.html', {'relatorio': relatorio,  'form':form})
