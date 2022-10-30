@@ -25,6 +25,23 @@
                 <p><b>Temperatura:</b> {{relatorio.temperatura}} °C</p>
                 <p><b>Condições Climáticas:</b> {{relatorio.clima}} </p>
                 <p><b>Responsáveis pela Inspeção:</b>  {{ relatorio.responsaveis }}</p>
+                <br>
+                <nav>
+                        <li>
+                                <a class="botao-icon" href="{% url '' rel_id=relatorio.id %}">
+                                        <span class="glyphicon glyphicon-list-alt"></span> Relatório de Planejamento
+                                </a>
+                                <a class="botao-icon" href="{% url '' rel_id=relatorio.id %}">
+                                        <span class="glyphicon glyphicon-list-alt"></span> Avaliação de Influências Externas
+                                </a>
+                                <a class="botao-icon" href="{% url '' rel_id=relatorio.id %}">
+                                        <span class="glyphicon glyphicon-list-alt"></span> Avaliação Quantitativa
+                                </a>
+                                <a class="botao-icon" href="{% url '' rel_id=relatorio.id %}">
+                                        <span class="glyphicon glyphicon-list-alt"></span> Avaliação Qualitativa
+                                </a>
+                        </li>
+                </nav>
         </div>
 </div>
 
