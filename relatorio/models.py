@@ -5,12 +5,15 @@ from django.contrib.auth.models import User
 
 class Relatorio(models.Model):
 
+    # Campos principais do relatório.
     autor = models.ForeignKey(User, default=None, on_delete=models.CASCADE)
     data = models.DateTimeField()
     local = models.CharField(max_length=100)
     temperatura = models.IntegerField()
     clima = models.CharField(max_length=100)
     responsaveis = models.TextField(blank=True)
+
+    # Campos da Avaliação e planejamento da execução.
     qualiprof = models.CharField(max_length=100, default='')
     riscos = models.CharField(max_length=100, default='')
     equipamentos = models.CharField(max_length=100, default='')
@@ -28,3 +31,13 @@ class Relatorio(models.Model):
     cinto_seg = models.CharField(max_length=4, default='')
     requi_seg = models.CharField(max_length=4, default='')
     reavaliacao = models.CharField(max_length=4, default='')
+
+
+    # Campos da Avaliação das influencias externas da instalação elétrica.
+
+
+    # Campos da Avaliação qualitativa da instalação elétrica.
+
+
+    # Campos da Avaliação quantitativa da instalação elétrica.
+    
