@@ -134,3 +134,92 @@ def planejamento_edita(request, rel_id):
         instance.save()
         return redirect('relatorio:list')
     return render(request, 'relatorio/relatorio_edita.html', {'relatorio': relatorio,  'form':form})
+
+@login_required(login_url="/accounts/login/")
+def externas_add(request, rel_id):
+    relatorio = Relatorio.objects.get(id=rel_id)
+    if relatorio.conferido != '':
+        return render(request, 'relatorio/relatorio_externas_visualiza.html', {'relatorio': relatorio})
+        
+    form = rel_forms.FormRelatorioExternas(request.POST or None, instance=relatorio)
+    if form.is_valid():
+            usuario = relatorio.autor
+            relatorios = Relatorio.objects.filter(autor=usuario)
+            relatorios2 = relatorios.exclude(id=rel_id)
+            instance = form.save(commit=False)
+            instance.save()
+            return redirect('relatorio:visualiza')
+    return render(request, 'relatorio/relatorio_edita.html', {'relatorio': relatorio,  'form':form})
+
+@login_required(login_url="/accounts/login/")
+def externas_edita(request, rel_id):
+    relatorio = Relatorio.objects.get(id=rel_id)
+    form = rel_forms.FormRelatorioExternas(request.POST or None, instance=relatorio)
+    if form.is_valid():
+        usuario = relatorio.autor
+        relatorios = Relatorio.objects.filter(autor=usuario)
+        relatorios2 = relatorios.exclude(id=rel_id)
+        instance = form.save(commit=False)
+        instance.save()
+        return redirect('relatorio:list')
+    return render(request, 'relatorio/relatorio_edita.html', {'relatorio': relatorio,  'form':form})
+
+@login_required(login_url="/accounts/login/")
+def qualitativas_add(request, rel_id):
+    relatorio = Relatorio.objects.get(id=rel_id)
+    if relatorio.conferido != '':
+        return render(request, 'relatorio/relatorio_qualitativas_visualiza.html', {'relatorio': relatorio})
+        
+    form = rel_forms.FormRelatorioQualitativa(request.POST or None, instance=relatorio)
+    if form.is_valid():
+            usuario = relatorio.autor
+            relatorios = Relatorio.objects.filter(autor=usuario)
+            relatorios2 = relatorios.exclude(id=rel_id)
+            instance = form.save(commit=False)
+            instance.save()
+            return redirect('relatorio:visualiza')
+    return render(request, 'relatorio/relatorio_edita.html', {'relatorio': relatorio,  'form':form})
+
+@login_required(login_url="/accounts/login/")
+def qualitativas_edita(request, rel_id):
+    relatorio = Relatorio.objects.get(id=rel_id)
+    form = rel_forms.FormRelatorioQualitativa(request.POST or None, instance=relatorio)
+    if form.is_valid():
+        usuario = relatorio.autor
+        relatorios = Relatorio.objects.filter(autor=usuario)
+        relatorios2 = relatorios.exclude(id=rel_id)
+        instance = form.save(commit=False)
+        instance.save()
+        return redirect('relatorio:list')
+    return render(request, 'relatorio/relatorio_edita.html', {'relatorio': relatorio,  'form':form})
+
+@login_required(login_url="/accounts/login/")
+def quantitativas_add(request, rel_id):
+    relatorio = Relatorio.objects.get(id=rel_id)
+    if relatorio.conferido != '':
+        return render(request, 'relatorio/relatorio_quantitativas_visualiza.html', {'relatorio': relatorio})
+        
+    form = rel_forms.FormRelatorioQuantitativa(request.POST or None, instance=relatorio)
+    if form.is_valid():
+            usuario = relatorio.autor
+            relatorios = Relatorio.objects.filter(autor=usuario)
+            relatorios2 = relatorios.exclude(id=rel_id)
+            instance = form.save(commit=False)
+            instance.save()
+            return redirect('relatorio:visualiza')
+    return render(request, 'relatorio/relatorio_edita.html', {'relatorio': relatorio,  'form':form})
+
+@login_required(login_url="/accounts/login/")
+def quantitativas_edita(request, rel_id):
+    relatorio = Relatorio.objects.get(id=rel_id)
+    form = rel_forms.FormRelatorioQuantitativa(request.POST or None, instance=relatorio)
+    if form.is_valid():
+        usuario = relatorio.autor
+        relatorios = Relatorio.objects.filter(autor=usuario)
+        relatorios2 = relatorios.exclude(id=rel_id)
+        instance = form.save(commit=False)
+        instance.save()
+        return redirect('relatorio:list')
+    return render(request, 'relatorio/relatorio_edita.html', {'relatorio': relatorio,  'form':form})
+
+

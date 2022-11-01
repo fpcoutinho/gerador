@@ -50,7 +50,7 @@ class FormRelatorioDePlanejamento(forms.ModelForm):
         fields = ['Qualificacao_Profissional','riscos', 'equipamentos', 'sinalizacao', 'desligamento', 'integridade', 'dialogo', 'curso_nr', 'conferido', 'delimitar_area', 'auxconces', 'tensao', 'aterramento', 'altura', 'cinto_seg', 'requi_seg', 'reavaliacao']
 
 # Avaliação das influencias externas da Instalação elétrica.
-class FormRelatorioExternasForm(forms.ModelForm):
+class FormRelatorioExternas(forms.ModelForm):
     #exemplo de especificação de field:
     data = forms.DateTimeField(widget=DateTimeInput(attrs={'type': 'datetime-local'}),input_formats='%d/%m/%Y %H:%M', label='Data e Hora da inspeção:')
 
@@ -59,7 +59,7 @@ class FormRelatorioExternasForm(forms.ModelForm):
         fields = ['data']
 
 # Avaliação qualitativa da instalação elétrica.
-class FormRelatorioQualitativaForm(forms.ModelForm):
+class FormRelatorioQualitativa(forms.ModelForm):
     #exemplo de especificação de field:
     data = forms.DateTimeField(widget=DateTimeInput(attrs={'type': 'datetime-local'}),input_formats='%d/%m/%Y %H:%M', label='Data e Hora da inspeção:')
 
@@ -68,7 +68,7 @@ class FormRelatorioQualitativaForm(forms.ModelForm):
         fields = ['data']
 
 # Avaliação quantitativa da Instalação.
-class FormRelatorioQuantitativaForm(forms.ModelForm):
+class FormRelatorioQuantitativa(forms.ModelForm):
     #exemplo de especificação de field:
     data = forms.DateTimeField(widget=DateTimeInput(attrs={'type': 'datetime-local'}),input_formats='%d/%m/%Y %H:%M', label='Data e Hora da inspeção:')
 

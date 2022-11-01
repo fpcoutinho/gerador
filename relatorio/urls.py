@@ -12,4 +12,10 @@ urlpatterns = [
     path('criar/', views.relatorio_cria, name="cria"),
     path('addplanejamento/<int:rel_id>/', views.planejamento_add, name="addplanejamento"),
     path('editaplanejamento/<int:rel_id>/', views.planejamento_edita, name="editaplanejamento"),
+    path('addexternas/<int:rel_id>/', views.externas_add, name="addexternas"),
+    path('editaexternas/<int:rel_id>/', views.externas_edita, name="editaexternas"),
+    path('addqualitativas/<int:rel_id>/', views.qualitativas_add, name="addqualitativas"),
+    path('editaqualitativas/<int:rel_id>/', views.qualitativas_edita, name="editaqualitativas"),
+    path('addquantitativas/<int:rel_id>/', views.quantitativas_add, name="addquantitativas"),
+    path('editaquantitativas/<int:rel_id>/', views.quantitativas_edita, name="editaquantitativas"),
 ]
