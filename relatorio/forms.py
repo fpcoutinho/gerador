@@ -17,7 +17,7 @@ class FormRelatorioInicial(forms.ModelForm):
 # Avaliação e planejamento da execução.
 class FormRelatorioDePlanejamento(forms.ModelForm):
     quali = [('Engenheiro Eletricista','Engenheiro Eletricista'), ('Técnico Eletrotécnico', 'Técnico Eletrotécnico'), ('Eletricista','Eletricista'), ('Aluno de curso profissionalizante', 'Aluno de curso profissionalizante')]
-    Qualificacao_Profissional = forms.ChoiceField(choices=quali, widget=forms.RadioSelect, label='Qual a qualificação profissional dos responsáveis pela inspeção?')
+    qualiprof = forms.ChoiceField(choices=quali, widget=forms.RadioSelect, label='Qual a qualificação profissional dos responsáveis pela inspeção?')
     
     radio=[('Sim','Sim'), ('Não','Não')]
     integridade = forms.ChoiceField(choices=radio, widget=forms.RadioSelect, label='Os participantes da inspeção estão bem fisicamente e mentalmente?')
@@ -47,7 +47,7 @@ class FormRelatorioDePlanejamento(forms.ModelForm):
 
     class Meta:
         model = models.Relatorio
-        fields = ['Qualificacao_Profissional','riscos', 'equipamentos', 'sinalizacao', 'desligamento', 'integridade', 'dialogo', 'curso_nr', 'conferido', 'delimitar_area', 'auxconces', 'tensao', 'aterramento', 'altura', 'cinto_seg', 'requi_seg', 'reavaliacao']
+        fields = ['qualiprof','riscos', 'equipamentos', 'sinalizacao', 'desligamento', 'integridade', 'dialogo', 'curso_nr', 'conferido', 'delimitar_area', 'auxconces', 'tensao', 'aterramento', 'altura', 'cinto_seg', 'requi_seg', 'reavaliacao']
 
 # Avaliação das influencias externas da Instalação elétrica.
 class FormRelatorioExternas(forms.ModelForm):

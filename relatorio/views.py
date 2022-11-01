@@ -83,7 +83,7 @@ def relatorio_exporta(request, rel_id):
         'temperatura':relatorio.temperatura,
         'clima':relatorio.clima,
         'responsaveis':relatorio.responsaveis,
-        'Qualificacao_Profissional':relatorio.Qualificacao_Profissional, 
+        'qualiprof':relatorio.qualiprof, 
         'integridade':relatorio.integridade,
         'dialogo':relatorio.dialogo,
         'curso_nr':relatorio.curso_nr,

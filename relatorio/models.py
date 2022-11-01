@@ -11,7 +11,7 @@ class Relatorio(models.Model):
     temperatura = models.IntegerField()
     clima = models.CharField(max_length=100)
     responsaveis = models.TextField(blank=True)
-    Qualificacao_Profissional = models.CharField(max_length=100, default='')
+    qualiprof = models.CharField(max_length=100, default='')
     riscos = models.CharField(max_length=100, default='')
     equipamentos = models.CharField(max_length=100, default='')
     sinalizacao = models.CharField(max_length=100, default='')
