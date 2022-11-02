@@ -99,7 +99,28 @@ def relatorio_exporta(request, rel_id):
         'altura':relatorio.altura,
         'cinto_seg':relatorio.cinto_seg,
         'requi_seg':relatorio.requi_seg,
-        'reavaliacao':relatorio.reavaliacao
+        'reavaliacao':relatorio.reavaliacao,
+        'tempambiente' : relatorio.tempambiente,
+        'condambiente' : relatorio.condambiente,
+        'altitude' : relatorio.altitude,
+        'presagua' : relatorio.presagua,
+        'pressolidos' : relatorio.pressolidos,
+        'pressubst' : relatorio.pressubst,
+        'solmecanicas' : relatorio.solmecanicas,
+        'presmofo' : relatorio.presmofo,
+        'presfauna' : relatorio.presfauna,
+        'infleletro' : relatorio.infleletro,
+        'radsolar' : relatorio.radsolar,
+        'descatm' : relatorio.descatm,
+        'movdoar' : relatorio.movdoar,
+        'vento' : relatorio.vento,
+        'competencia' : relatorio.competencia,
+        'reseletr' : relatorio.reseletr,
+        'contpessoas' : relatorio.contpessoas,
+        'condfuga' : relatorio.condfuga,
+        'natmatpr' : relatorio.natmatpr,
+        'natmatcons' : relatorio.natmatcons,
+        'classestr' : relatorio.classestr
     }
     doc.render(context)
     doc.save(byte_io)
@@ -109,7 +130,7 @@ def relatorio_exporta(request, rel_id):
 @login_required(login_url="/accounts/login/")
 def planejamento_add(request, rel_id):
     relatorio = Relatorio.objects.get(id=rel_id)
-    if relatorio.conferido != '':
+    if relatorio.tempambiente != '':
         return render(request, 'relatorio/relatorio_planejamento_visualiza.html', {'relatorio': relatorio})
         
     form = rel_forms.FormRelatorioDePlanejamento(request.POST or None, instance=relatorio)
