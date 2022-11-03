@@ -18,7 +18,7 @@ class QualiWidget(forms.MultiWidget):
         if isinstance(value, str):
             if(value == ''):
                 return ''
-            obj, obs = value.split(';')
+            obj, obs = value.split(': ')
             return [obj, obs]
 
 class QualiField(forms.MultiValueField):
@@ -35,7 +35,7 @@ class QualiField(forms.MultiValueField):
         self.widget=QualiWidget(choices=myChoices)
     
     def compress(self, value):
-        return f'{value[0]};{value[1]}' if isinstance(value, list) else ''
+        return f'{value[0]}: {value[1]}' if isinstance(value, list) else ''
         
 
 
