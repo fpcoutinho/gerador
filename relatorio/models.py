@@ -57,5 +57,27 @@ class Relatorio(models.Model):
 
     # Campos da Avaliação qualitativa da instalação elétrica.
     documentacao = models.CharField(max_length=100, default='')
-
+    ambientesofreu = models.CharField(max_length=100, default='')
+    instalacaoinspecionada = models.CharField(max_length=100, default='')
+    linhaseletricasdisp = models.CharField(max_length=100, default='')
+    compinstalacao = models.CharField(max_length=100, default='')
+    linhaseletricascorr = models.CharField(max_length=100, default='')
+    tomadasdeforca = models.CharField(max_length=100, default='')
+    qtdesufitomadas = models.CharField(max_length=100, default='')
+    instlquadist = models.CharField(max_length=100, default='')
+    novoscircuitos = models.CharField(max_length=100, default='')
+    advquadist = models.CharField(max_length=100, default='')
+    dispprotecaoident = models.CharField(max_length=100, default='')
+    protcircuitos = models.CharField(max_length=100, default='')
+    barramentoquadist = models.CharField(max_length=100, default='')
+    bitola = models.CharField(max_length=100, default='')
+    condutident = models.CharField(max_length=100, default='')
+    disjundif = models.CharField(max_length=100, default='')
+    dispprotecaosurtos = models.CharField(max_length=100, default='')
+    servseguranca = models.CharField(max_length=100, default='')
+    esqaterramento = models.CharField(max_length=100, default='')
+    reservadeenergia = models.CharField(max_length=100, default='')
+    fontseguranca = models.CharField(max_length=100, default='')
+    paralelismo = models.CharField(max_length=100, default='')
+    
     # Campos da Avaliação quantitativa da instalação elétrica.

@@ -9,6 +9,7 @@ class FormRelatorioInicial(forms.ModelForm):
     data = forms.DateTimeField(widget=DateTimeInput(attrs={'type': 'datetime-local'}),input_formats='%d/%m/%Y %H:%M', label='Data e Hora da inspeção:')
     clima = forms.CharField(label='Condições Climáticas:')
     temperatura = forms.IntegerField(label='Temperatura (em °C):')
+    responsaveis = forms.CharField(widget=forms.Textarea(attrs={'placeholder': 'Insira os nomes separados por vírgula (,)'}), label='Responsáveis')
 
     class Meta:
         model = models.Relatorio
@@ -88,7 +89,7 @@ class QualiWidget(forms.MultiWidget):
         myChoices = kwargs.pop("choices",[])
         widgets = (
             forms.Select(choices=myChoices),
-            forms.Textarea(),
+            forms.Textarea(attrs={'placeholder': 'Observações'}),
         )
         super(QualiWidget, self).__init__(widgets, *args,**kwargs)
     
@@ -117,12 +118,18 @@ class QualiField(forms.MultiValueField):
 
 
 class FormRelatorioQualitativa(forms.ModelForm):
-    #exemplo de especificação de field:
+    
     documentacao = QualiField(choices=[('Sim', 'Sim'), ('Não', 'Não'), ('Parcialmente', 'Parcialmente')], label='Há documentação da instalação e esta inclui plantas, esquemas unifilares e outros, detalhes de montagem, memorial descritivo, especificações de componentes, parâmetros de projeto?')
-    #data = forms.DateTimeField(widget=DateTimeInput(attrs={'type': 'datetime-local'}),input_formats='%d/%m/%Y %H:%M', label='Data e Hora da inspeção:')
+    
+    #10º campo abaixo
+    novoscircuitos = forms.ChoiceField(choices=[('Nenhuma', 'Nenhuma'), ('Até 6', 'Até 6'), ('7 a 12', '7 a 12'), ('13 a 30', '13 a 30'), ('N > 30', 'N > 30')], label='Há disponibilidade de criação de novos circuitos no quadro de distribuição?')
+    
+    #20º campo abaixo
+    esqaterramento = forms.ChoiceField(choices=[('TN-S', 'TN-S'), ('TN-C-S', 'TN-C-S'), ('TN-C', 'TN-C'), ('TT', 'TT'), ('IT','IT')], label='Qual o esquema de aterramento utilizado?')
+    
     class Meta:
         model = models.Relatorio
-        fields = ['documentacao']
+        fields = ['documentacao', 'ambientesofreu', 'instalacaoinspecionada', 'linhaseletricasdisp', 'compinstalacao', 'linhaseletricascorr', 'tomadasdeforca', 'qtdesufitomadas', 'instlquadist', 'novoscircuitos', 'advquadist', 'dispprotecaoident', 'protcircuitos', 'barramentoquadist', 'bitola', 'condutident', 'disjundif', 'dispprotecaosurtos', 'servseguranca', 'esqaterramento', 'reservadeenergia', 'fontseguranca', 'paralelismo']
 
 # Avaliação quantitativa da Instalação.
 class FormRelatorioQuantitativa(forms.ModelForm):
