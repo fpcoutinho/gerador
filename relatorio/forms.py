@@ -4,6 +4,41 @@ from . import models
 from django.forms.widgets import DateTimeInput, RadioSelect, CheckboxSelectMultiple
 
 
+class QualiWidget(forms.MultiWidget):
+    def __init__(self, *args,**kwargs):
+
+        myChoices = kwargs.pop("choices",[])
+        widgets = (
+            forms.Select(choices=myChoices),
+            forms.Textarea(),
+        )
+        super(QualiWidget, self).__init__(widgets, *args,**kwargs)
+    
+    def decompress(self, value):
+        if isinstance(value, str):
+            if(value == ''):
+                return ''
+            obj, obs = value.split(';')
+            return [obj, obs]
+
+class QualiField(forms.MultiValueField):
+
+    widget = QualiWidget
+
+    def __init__(self, *args,**kwargs):
+        myChoices = kwargs.pop("choices")
+        fields = (
+            forms.ChoiceField(choices=myChoices),
+            forms.CharField(required=False),
+        )
+        super(QualiField,self).__init__(fields,*args,**kwargs)
+        self.widget=QualiWidget(choices=myChoices)
+    
+    def compress(self, value):
+        return f'{value[0]};{value[1]}' if isinstance(value, list) else ''
+        
+
+
 # Cria e Edita o relatório inicial, apenas com dados simples.
 class FormRelatorioInicial(forms.ModelForm):
     data = forms.DateTimeField(widget=DateTimeInput(attrs={'type': 'datetime-local'}),input_formats='%d/%m/%Y %H:%M', label='Data e Hora da inspeção:')
@@ -84,11 +119,11 @@ class FormRelatorioExternas(forms.ModelForm):
 # Avaliação qualitativa da instalação elétrica.
 class FormRelatorioQualitativa(forms.ModelForm):
     #exemplo de especificação de field:
-    data = forms.DateTimeField(widget=DateTimeInput(attrs={'type': 'datetime-local'}),input_formats='%d/%m/%Y %H:%M', label='Data e Hora da inspeção:')
-
+    documentacao = QualiField(choices=[('Sim', 'Sim'), ('Não', 'Não'), ('Parcialmente', 'Parcialmente')], label='Há documentação da instalação e esta inclui plantas, esquemas unifilares e outros, detalhes de montagem, memorial descritivo, especificações de componentes, parâmetros de projeto?')
+    #data = forms.DateTimeField(widget=DateTimeInput(attrs={'type': 'datetime-local'}),input_formats='%d/%m/%Y %H:%M', label='Data e Hora da inspeção:')
     class Meta:
         model = models.Relatorio
-        fields = ['data']
+        fields = ['documentacao']
 
 # Avaliação quantitativa da Instalação.
 class FormRelatorioQuantitativa(forms.ModelForm):

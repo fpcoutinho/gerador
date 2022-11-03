@@ -43,7 +43,7 @@ def relatorio_cria(request):
             instance = form.save(commit=False)
             instance.autor = usuario
             instance.save()
-            return redirect('relatorio:list')
+            return redirect('relatorio:visualiza', instance.id)
     else:
         form = rel_forms.FormRelatorioInicial()
     return render(request, 'relatorio/relatorio_cria.html', {'form': form})
@@ -58,7 +58,7 @@ def relatorio_edita(request, rel_id):
         relatorios2 = relatorios.exclude(id=rel_id)
         instance = form.save(commit=False)
         instance.save()
-        return redirect('relatorio:list')
+        return redirect('relatorio:visualiza', instance.id)
         
     return render(request, 'relatorio/relatorio_edita.html', {'relatorio': relatorio,  'form':form})
     
@@ -140,7 +140,7 @@ def planejamento_add(request, rel_id):
             relatorios2 = relatorios.exclude(id=rel_id)
             instance = form.save(commit=False)
             instance.save()
-            return redirect('relatorio:visualiza')
+            return redirect('relatorio:visualiza', rel_id)
     return render(request, 'relatorio/relatorio_edita.html', {'relatorio': relatorio,  'form':form})
 
 @login_required(login_url="/accounts/login/")
@@ -153,13 +153,13 @@ def planejamento_edita(request, rel_id):
         relatorios2 = relatorios.exclude(id=rel_id)
         instance = form.save(commit=False)
         instance.save()
-        return redirect('relatorio:list')
+        return redirect('relatorio:visualiza', rel_id)
     return render(request, 'relatorio/relatorio_edita.html', {'relatorio': relatorio,  'form':form})
 
 @login_required(login_url="/accounts/login/")
 def externas_add(request, rel_id):
     relatorio = Relatorio.objects.get(id=rel_id)
-    if relatorio.conferido != '':
+    if relatorio.tempambiente != '':
         return render(request, 'relatorio/relatorio_externas_visualiza.html', {'relatorio': relatorio})
         
     form = rel_forms.FormRelatorioExternas(request.POST or None, instance=relatorio)
@@ -169,7 +169,7 @@ def externas_add(request, rel_id):
             relatorios2 = relatorios.exclude(id=rel_id)
             instance = form.save(commit=False)
             instance.save()
-            return redirect('relatorio:visualiza')
+            return redirect('relatorio:visualiza', rel_id)
     return render(request, 'relatorio/relatorio_edita.html', {'relatorio': relatorio,  'form':form})
 
 @login_required(login_url="/accounts/login/")
@@ -182,13 +182,13 @@ def externas_edita(request, rel_id):
         relatorios2 = relatorios.exclude(id=rel_id)
         instance = form.save(commit=False)
         instance.save()
-        return redirect('relatorio:list')
+        return redirect('relatorio:visualiza', rel_id)
     return render(request, 'relatorio/relatorio_edita.html', {'relatorio': relatorio,  'form':form})
 
 @login_required(login_url="/accounts/login/")
 def qualitativas_add(request, rel_id):
     relatorio = Relatorio.objects.get(id=rel_id)
-    if relatorio.conferido != '':
+    if relatorio.documentacao != '':
         return render(request, 'relatorio/relatorio_qualitativas_visualiza.html', {'relatorio': relatorio})
         
     form = rel_forms.FormRelatorioQualitativa(request.POST or None, instance=relatorio)
@@ -198,7 +198,7 @@ def qualitativas_add(request, rel_id):
             relatorios2 = relatorios.exclude(id=rel_id)
             instance = form.save(commit=False)
             instance.save()
-            return redirect('relatorio:visualiza')
+            return redirect('relatorio:visualiza', rel_id)
     return render(request, 'relatorio/relatorio_edita.html', {'relatorio': relatorio,  'form':form})
 
 @login_required(login_url="/accounts/login/")
@@ -211,7 +211,7 @@ def qualitativas_edita(request, rel_id):
         relatorios2 = relatorios.exclude(id=rel_id)
         instance = form.save(commit=False)
         instance.save()
-        return redirect('relatorio:list')
+        return redirect('relatorio:visualiza', rel_id)
     return render(request, 'relatorio/relatorio_edita.html', {'relatorio': relatorio,  'form':form})
 
 @login_required(login_url="/accounts/login/")
@@ -227,7 +227,7 @@ def quantitativas_add(request, rel_id):
             relatorios2 = relatorios.exclude(id=rel_id)
             instance = form.save(commit=False)
             instance.save()
-            return redirect('relatorio:visualiza')
+            return redirect('relatorio:visualiza', rel_id)
     return render(request, 'relatorio/relatorio_edita.html', {'relatorio': relatorio,  'form':form})
 
 @login_required(login_url="/accounts/login/")
@@ -240,7 +240,7 @@ def quantitativas_edita(request, rel_id):
         relatorios2 = relatorios.exclude(id=rel_id)
         instance = form.save(commit=False)
         instance.save()
-        return redirect('relatorio:list')
+        return redirect('relatorio:visualiza', rel_id)
     return render(request, 'relatorio/relatorio_edita.html', {'relatorio': relatorio,  'form':form})
 
 

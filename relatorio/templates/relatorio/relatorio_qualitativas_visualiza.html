@@ -5,7 +5,7 @@
         <h2>Avaliação qualitativa da instalação elétrica</h2>
         <nav>
         <li>
-                <a class="botao-icon" href="{% url 'relatorio:editaplanejamento' rel_id=relatorio.id %}">
+                <a class="botao-icon" href="{% url 'relatorio:editaqualitativas' rel_id=relatorio.id %}">
                         <span class="glyphicon glyphicon-edit"></span> editar
                 </a>
                 <a class="botao-icon" href="{% url 'relatorio:deleta' rel_id=relatorio.id %}">
@@ -17,23 +17,10 @@
 
 <div class="compromisso-visualiza-wrapper">
         <div class="compromisso-visualiza">
-                <p><b>Qualificação profissional dos responsáveis pela inspeção:</b> {{relatorio.qualiprof}}</p>
-                <p><b>Os participantes da inspeção estão bem fisicamente e mentalmente?</b> {{relatorio.integridade}}</p>
-                <p><b>Houve diálogo de segurança?</b> {{relatorio.dialogo}}</p>
-                <p><b>Um ou mais executores da inspeção possui curso NR-10?</b> {{relatorio.curso_nr}}</p>
-                <p><b>O serviço foi preliminarmente conferido?</b> {{relatorio.conferido}}</p>
-                <p><b>Quais riscos foram detectados na inspeção:</b> {{ relatorio.riscos }}</p>
-                <p><b>Quais equipamentos de segurança serão utilizados:</b> {{relatorio.equipamentos}}</p>
-                <p><b>Este serviço requer desligamento ou bloqueio de equipamento ou rede?</b> {{relatorio.desligamento}}</p>
-                <p><b>Sinalização requerida para o serviço:</b> {{relatorio.sinalizacao}}</p>
-                <p><b>Necessita delimitar a área de trabalho?</b> {{relatorio.delimitar_area}}</p>
-                <p><b>Necessita de auxílio de concessionária local?</b> {{relatorio.auxconces}}</p>
-                <p><b>Necessário fazer verificação de tensão?</b> {{relatorio.tensao}}</p>
-                <p><b>A inspeção requer aterramento temporário?</b> {{relatorio.aterramento}}</p>
-                <p><b>A inspeção será realizada em altura?</b> {{relatorio.altura}}</p>
-                <p><b>Será necessário se aprisionar à escada e utilização de cinto de segurança?</b> {{relatorio.cinto_seg}}</p>
-                <p><b>Os requisitos de segurança foram atendidos por todos?</b> {{relatorio.requi_seg}}</p>
-                <p><b>Houve necessidade de reavaliação das inspeções realizadas?</b> {{relatorio.reavaliacao}}</p>
+                <p><b>Há documentação da instalação e esta inclui 
+                        plantas, esquemas unifilares e outros, detalhes de 
+                        montagem, memorial descritivo, especificações 
+                        de componentes, parâmetros de projeto?</b> {{relatorio.documentacao}}</p>
         </div>
 </div>
 

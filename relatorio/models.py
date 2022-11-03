@@ -2,7 +2,6 @@ from tkinter import Widget
 from django.db import models
 from django.contrib.auth.models import User
 
-
 class Relatorio(models.Model):
 
     # Campos principais do relatório.
@@ -34,29 +33,29 @@ class Relatorio(models.Model):
 
 
     # Campos da Avaliação das influencias externas da instalação elétrica.
-    tempambiente = models.CharField(max_length=30, default='')
-    condambiente = models.CharField(max_length=30, default='')
-    altitude = models.CharField(max_length=30, default='')
-    presagua = models.CharField(max_length=30, default='')
-    pressolidos = models.CharField(max_length=30, default='')
-    pressubst = models.CharField(max_length=30, default='')
-    solmecanicas = models.CharField(max_length=30, default='')
-    presmofo = models.CharField(max_length=30, default='')
-    presfauna = models.CharField(max_length=30, default='')
-    infleletro = models.CharField(max_length=30, default='')
-    radsolar = models.CharField(max_length=30, default='')
-    descatm = models.CharField(max_length=30, default='')
-    movdoar = models.CharField(max_length=30, default='')
-    vento = models.CharField(max_length=30, default='')
-    competencia = models.CharField(max_length=30, default='')
-    reseletr = models.CharField(max_length=30, default='')
-    contpessoas = models.CharField(max_length=30, default='')
-    condfuga = models.CharField(max_length=30, default='')
-    natmatpr = models.CharField(max_length=30, default='')
-    natmatcons = models.CharField(max_length=30, default='')
-    classestr = models.CharField(max_length=30, default='')
+    tempambiente = models.CharField(max_length=100, default='')
+    condambiente = models.CharField(max_length=100, default='')
+    altitude = models.CharField(max_length=100, default='')
+    presagua = models.CharField(max_length=100, default='')
+    pressolidos = models.CharField(max_length=100, default='')
+    pressubst = models.CharField(max_length=100, default='')
+    solmecanicas = models.CharField(max_length=100, default='')
+    presmofo = models.CharField(max_length=100, default='')
+    presfauna = models.CharField(max_length=100, default='')
+    infleletro = models.CharField(max_length=100, default='')
+    radsolar = models.CharField(max_length=100, default='')
+    descatm = models.CharField(max_length=100, default='')
+    movdoar = models.CharField(max_length=100, default='')
+    vento = models.CharField(max_length=100, default='')
+    competencia = models.CharField(max_length=100, default='')
+    reseletr = models.CharField(max_length=100, default='')
+    contpessoas = models.CharField(max_length=100, default='')
+    condfuga = models.CharField(max_length=100, default='')
+    natmatpr = models.CharField(max_length=100, default='')
+    natmatcons = models.CharField(max_length=100, default='')
+    classestr = models.CharField(max_length=100, default='')
 
     # Campos da Avaliação qualitativa da instalação elétrica.
-
+    documentacao = models.CharField(max_length=100, default='')
 
     # Campos da Avaliação quantitativa da instalação elétrica.
