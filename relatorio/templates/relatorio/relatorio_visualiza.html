@@ -2,7 +2,12 @@
 
 {% block content %}
 <header style="margin-inline:5%;">
-        <h2>Meu Relatório</h2>
+        <h2>
+                <button class="botao-icon" onclick="history.back()">
+                        <span class="glyphicon glyphicon-circle-arrow-left"></span>
+                </button>
+                Meu Relatório
+        </h2>
         <nav>
         <li>
                 <a class="botao-icon" href="{% url 'relatorio:exporta' rel_id=relatorio.id %}">

@@ -14,8 +14,8 @@ class FormRelatorioInicial(forms.ModelForm):
     class Meta:
         model = models.Relatorio
         fields = ['data', 'local', 'temperatura', 'clima', 'responsaveis']
-  
-        
+
+
 # Avaliação e planejamento da execução.
 class FormRelatorioDePlanejamento(forms.ModelForm):
     quali = [('Engenheiro Eletricista','Engenheiro Eletricista'), ('Técnico Eletrotécnico', 'Técnico Eletrotécnico'), ('Eletricista','Eletricista'), ('Aluno de curso profissionalizante', 'Aluno de curso profissionalizante')]
@@ -153,6 +153,40 @@ class FormRelatorioQualitativa(forms.ModelForm):
 
 
 # Avaliação quantitativa da Instalação.
+class QuantiWidget(forms.MultiWidget):
+    def __init__(self, *args,**kwargs):
+
+        myChoices = kwargs.pop("choices",[])
+        widgets = (
+            forms.Select(choices=myChoices),
+            forms.Textarea(attrs={'placeholder': 'Observações'}),
+        )
+        super(QualiWidget, self).__init__(widgets, *args,**kwargs)
+    
+    def decompress(self, value):
+        if isinstance(value, str):
+            if(value == ''):
+                return ''
+            obj, obs = value.split(': ')
+            return [obj, obs]
+
+class QuantiField(forms.MultiValueField):
+
+    widget = QualiWidget
+
+    def __init__(self, *args,**kwargs):
+        myChoices = kwargs.pop("choices")
+        fields = (
+            forms.ChoiceField(choices=myChoices),
+            forms.CharField(required=False),
+        )
+        super(QualiField,self).__init__(fields,*args,**kwargs)
+        self.widget=QualiWidget(choices=myChoices)
+    
+    def compress(self, value):
+        return f'{value[0]}: {value[1]}' if isinstance(value, list) else ''
+
+
 class FormRelatorioQuantitativa(forms.ModelForm):
     #exemplo de especificação de field:
     data = forms.DateTimeField(widget=DateTimeInput(attrs={'type': 'datetime-local'}),input_formats='%d/%m/%Y %H:%M', label='Data e Hora da inspeção:')

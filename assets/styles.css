@@ -114,7 +114,7 @@ a, a:hover, a:visited{
     text-decoration: none;
 }
 
-a:hover{
+a:hover, .botao-icon:hover{
     color: #0082c4;
 }
 
@@ -150,6 +150,7 @@ nav li{
     color: #005b88;
     cursor: pointer;
     size-adjust: 2px;
+    border-width: 0;
     cursor: pointer;
     padding-left: 15px;
 }
