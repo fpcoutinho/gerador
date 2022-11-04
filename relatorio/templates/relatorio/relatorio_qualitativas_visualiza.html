@@ -17,10 +17,29 @@
 
 <div class="compromisso-visualiza-wrapper">
         <div class="compromisso-visualiza">
-                <p><b>Há documentação da instalação e esta inclui 
-                        plantas, esquemas unifilares e outros, detalhes de 
-                        montagem, memorial descritivo, especificações 
-                        de componentes, parâmetros de projeto?</b> {{relatorio.documentacao}}</p>
+                <p><b> Há documentação da instalação e esta inclui plantas, esquemas unifilares e outros, detalhes de montagem, memorial descritivo, especificações de componentes, parâmetros de projeto?</b> {{ relatorio.documentacao }}</p>
+                <p><b> O ambiente sofreu alguma reforma e a documentação foi atualizada ou acrescida de algum aditivo de projeto?</b> {{ relatorio.ambientesofreu }}</p>
+                <p><b> A instalação foi inspecionada antes da entrada em funcionamento e existe algum documento atestando esse fato?</b> {{ relatorio.instalacaoinspecionada }}</p>
+                <p><b> As linhas elétricas estão dispostas de modo a permitir verificações, ensaios, reparos ou modificação da instalação?</b> {{ relatorio.linhaseletricasdisp }}</p>
+                <p><b> Os componentes da instalação foram selecionados e instalados levando-se em conta as influências externas?</b> {{ relatorio.compinstalacao }}</p>
+                <p><b> As linhas elétricas estão corretamente instaladas?</b> {{ relatorio.linhaseletricascorr }}</p>
+                <p><b> As tomadas de força existentes atendem ao novo padrão nacional NBR 14136/2002?</b> {{ relatorio.tomadasdeforca }}</p>
+                <p><b> O ambiente apresenta tomadas de força em quantidade suficiente?</b> {{ relatorio.qtdesufitomadas }}</p>
+                <p><b> O quadro de distribuição está devidamente instalado em local de fácil acesso à manutenção, inspeção e ensaio?</b> {{ relatorio.instlquadist }}</p>
+                <p><b> Há disponibilidade de criação de novos circuitos no quadro de distribuição?</b> {{ relatorio.novoscircuitos }}</p>
+                <p><b> Há indicações de advertência nos quadros de distribuição?</b> {{ relatorio.advquadist }}</p>
+                <p><b> Os dispositivos de proteção estão dispostos e identificados de forma fácil de reconhecer os respectivos circuitos protegidos?</b> {{ relatorio.dispprotecaoident }}</p>
+                <p><b> A proteção dos circuitos é compatível com a bitola dos condutores?</b> {{ relatorio.protcircuitos }}</p>
+                <p><b> O Quadro de distribuição possui barramento de neutro e aterramento?</b> {{ relatorio.barramentoquadist }}</p>
+                <p><b> Todas as conexões estão com terminais apropriados para cada bitola utilizada?</b> {{ relatorio.bitola }}</p>
+                <p><b> Os condutores estão identificados por cores ou conforme sua função?</b> {{ relatorio.condutident }}</p>
+                <p><b> Existe disjuntor diferencial residual instalado no quadro de distribuição?</b> {{ relatorio.disjundif }}</p>
+                <p><b> Existe dispositivo de proteção contra surtos de tensões?</b> {{ relatorio.dispprotecaosurtos }}</p>
+                <p><b> Há elementos para serviços de segurança a exemplo de iluminação de emergência, exaustores de fumaça, etc?</b> {{ relatorio.servseguranca }}</p>
+                <p><b> Qual o esquema de aterramento utilizado?</b> {{ relatorio.esqaterramento }}</p>
+                <p><b> Existe fonte alternativa ou de reserva de energia?</b> {{ relatorio.reservadeenergia }}</p>
+                <p><b> Existe fonte de segurança de energia?</b> {{ relatorio.fontseguranca }}</p>
+                <p><b> Há mecanismos para evitar o paralelismo das fontes?</b> {{ relatorio.paralelismo }}</p>
         </div>
 </div>
 

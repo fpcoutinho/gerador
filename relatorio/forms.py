@@ -119,14 +119,31 @@ class QualiField(forms.MultiValueField):
 
 class FormRelatorioQualitativa(forms.ModelForm):
     
-    documentacao = QualiField(choices=[('Sim', 'Sim'), ('Não', 'Não'), ('Parcialmente', 'Parcialmente')], label='Há documentação da instalação e esta inclui plantas, esquemas unifilares e outros, detalhes de montagem, memorial descritivo, especificações de componentes, parâmetros de projeto?')
-    
-    #10º campo abaixo
+    escolhas = [('Sim', 'Sim'), ('Não', 'Não'), ('Parcialmente', 'Parcialmente')]
+    documentacao = QualiField(choices=escolhas, label='Há documentação da instalação e esta inclui plantas, esquemas unifilares e outros, detalhes de montagem, memorial descritivo, especificações de componentes, parâmetros de projeto?')
+    ambientesofreu = QualiField(choices=escolhas, label='O ambiente sofreu alguma reforma e a documentação foi atualizada ou acrescida de algum aditivo de projeto?')
+    instalacaoinspecionada = QualiField(choices=escolhas, label='A instalação foi inspecionada antes da entrada em funcionamento e existe algum documento atestando esse fato?')
+    linhaseletricasdisp = QualiField(choices=escolhas, label='As linhas elétricas estão dispostas de modo a permitir verificações, ensaios, reparos ou modificação da instalação?')
+    compinstalacao = QualiField(choices=escolhas, label='Os componentes da instalação foram selecionados e instalados levando-se em conta as influências externas?')
+    linhaseletricascorr = QualiField(choices=escolhas, label='As linhas elétricas estão corretamente instaladas?')
+    tomadasdeforca = QualiField(choices=escolhas, label='As tomadas de força existentes atendem ao novo padrão nacional NBR 14136/2002?')
+    qtdesufitomadas = QualiField(choices=escolhas, label='O ambiente apresenta tomadas de força em quantidade suficiente?')
+    instlquadist = QualiField(choices=escolhas, label='O quadro de distribuição está devidamente instalado em local de fácil acesso à manutenção, inspeção e ensaio?')
     novoscircuitos = forms.ChoiceField(choices=[('Nenhuma', 'Nenhuma'), ('Até 6', 'Até 6'), ('7 a 12', '7 a 12'), ('13 a 30', '13 a 30'), ('N > 30', 'N > 30')], label='Há disponibilidade de criação de novos circuitos no quadro de distribuição?')
-    
-    #20º campo abaixo
+    advquadist = QualiField(choices=escolhas, label='Há indicações de advertência nos quadros de distribuição?')
+    dispprotecaoident = QualiField(choices=escolhas, label='Os dispositivos de proteção estão dispostos e identificados de forma fácil de reconhecer os respectivos circuitos protegidos?')
+    protcircuitos = QualiField(choices=escolhas, label='A proteção dos circuitos é compatível com a bitola dos condutores?')
+    barramentoquadist = QualiField(choices=escolhas, label='O Quadro de distribuição possui barramento de neutro e aterramento?')
+    bitola = QualiField(choices=escolhas, label='Todas as conexões estão com terminais apropriados para cada bitola utilizada?')
+    condutident = QualiField(choices=escolhas, label='Os condutores estão identificados por cores ou conforme sua função?')
+    disjundif = QualiField(choices=escolhas, label='Existe disjuntor diferencial residual instalado no quadro de distribuição?')
+    dispprotecaosurtos = QualiField(choices=escolhas, label='Existe dispositivo de proteção contra surtos de tensões?')
+    servseguranca = QualiField(choices=escolhas, label='Há elementos para serviços de segurança a exemplo de iluminação de emergência, exaustores de fumaça, etc?')
     esqaterramento = forms.ChoiceField(choices=[('TN-S', 'TN-S'), ('TN-C-S', 'TN-C-S'), ('TN-C', 'TN-C'), ('TT', 'TT'), ('IT','IT')], label='Qual o esquema de aterramento utilizado?')
-    
+    reservadeenergia = QualiField(choices=escolhas, label='Existe fonte alternativa ou de reserva de energia?')
+    fontseguranca = QualiField(choices=escolhas, label='Existe fonte de segurança de energia?')
+    paralelismo = QualiField(choices=escolhas, label='Há mecanismos para evitar o paralelismo das fontes?')
+
     class Meta:
         model = models.Relatorio
         fields = ['documentacao', 'ambientesofreu', 'instalacaoinspecionada', 'linhaseletricasdisp', 'compinstalacao', 'linhaseletricascorr', 'tomadasdeforca', 'qtdesufitomadas', 'instlquadist', 'novoscircuitos', 'advquadist', 'dispprotecaoident', 'protcircuitos', 'barramentoquadist', 'bitola', 'condutident', 'disjundif', 'dispprotecaosurtos', 'servseguranca', 'esqaterramento', 'reservadeenergia', 'fontseguranca', 'paralelismo']
