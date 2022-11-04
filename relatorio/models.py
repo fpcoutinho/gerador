@@ -81,3 +81,5 @@ class Relatorio(models.Model):
     paralelismo = models.CharField(max_length=100, default='')
     
     # Campos da Avaliação quantitativa da instalação elétrica.
+
+    

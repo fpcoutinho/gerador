@@ -14,6 +14,7 @@ class FormRelatorioInicial(forms.ModelForm):
     class Meta:
         model = models.Relatorio
         fields = ['data', 'local', 'temperatura', 'clima', 'responsaveis']
+  
         
 # Avaliação e planejamento da execução.
 class FormRelatorioDePlanejamento(forms.ModelForm):
@@ -50,6 +51,7 @@ class FormRelatorioDePlanejamento(forms.ModelForm):
         model = models.Relatorio
         fields = ['qualiprof','riscos', 'equipamentos', 'sinalizacao', 'desligamento', 'integridade', 'dialogo', 'curso_nr', 'conferido', 'delimitar_area', 'auxconces', 'tensao', 'aterramento', 'altura', 'cinto_seg', 'requi_seg', 'reavaliacao']
 
+
 # Avaliação das influencias externas da Instalação elétrica.
 class FormRelatorioExternas(forms.ModelForm):
     #exemplo de especificação de field:
@@ -81,6 +83,7 @@ class FormRelatorioExternas(forms.ModelForm):
         'pressubst', 'solmecanicas', 'presmofo', 'presfauna', 'infleletro', 'radsolar',
         'descatm', 'movdoar', 'vento', 'competencia', 'reseletr', 'contpessoas', 'condfuga',
         'natmatpr', 'natmatcons', 'classestr']
+
 
 # Avaliação qualitativa da instalação elétrica.
 class QualiWidget(forms.MultiWidget):
@@ -147,6 +150,7 @@ class FormRelatorioQualitativa(forms.ModelForm):
     class Meta:
         model = models.Relatorio
         fields = ['documentacao', 'ambientesofreu', 'instalacaoinspecionada', 'linhaseletricasdisp', 'compinstalacao', 'linhaseletricascorr', 'tomadasdeforca', 'qtdesufitomadas', 'instlquadist', 'novoscircuitos', 'advquadist', 'dispprotecaoident', 'protcircuitos', 'barramentoquadist', 'bitola', 'condutident', 'disjundif', 'dispprotecaosurtos', 'servseguranca', 'esqaterramento', 'reservadeenergia', 'fontseguranca', 'paralelismo']
+
 
 # Avaliação quantitativa da Instalação.
 class FormRelatorioQuantitativa(forms.ModelForm):
