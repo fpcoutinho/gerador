@@ -1,2 +1,2 @@
 # gerador
-Este projeto é sobre uma Aplicação Web para automatizar o processo de gerar laudos de engenheiros elétricos.
+Este projeto é uma aplicação Web automatizadora do processo de geração laudos de engenheiros eletricistas.
