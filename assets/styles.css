@@ -281,3 +281,7 @@ nav li{
 ul#id_especialista li{
     display: inline-block;
 }
+
+#id_condambiente, #id_infleletro{
+    width:100%;
+}
