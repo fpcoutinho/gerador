@@ -153,39 +153,42 @@ class FormRelatorioQualitativa(forms.ModelForm):
 
 
 # Avaliação quantitativa da Instalação.
-class QuantiWidget(forms.MultiWidget):
+class CircuitoWidget(forms.MultiWidget):
     def __init__(self, *args,**kwargs):
-
-        myChoices = kwargs.pop("choices",[])
+    
         widgets = (
-            forms.Select(choices=myChoices),
-            forms.Textarea(attrs={'placeholder': 'Observações'}),
+            forms.TextInput(attrs={'placeholder': 'Circuito'}),
+            forms.TextInput(attrs={'placeholder': 'Fase'}),
+            forms.TextInput(attrs={'placeholder': 'Disjuntor'}),
+            forms.TextInput(attrs={'placeholder': 'Descrição'}),
+            forms.TextInput(attrs={'placeholder': 'Condutor'}),
+            forms.TextInput(attrs={'placeholder': 'Corrente'}),
         )
-        super(QuantiWidget, self).__init__(widgets, *args,**kwargs)
+        super(CircuitoWidget, self).__init__(widgets, *args,**kwargs)
     
     def decompress(self, value):
         if isinstance(value, str):
-            if(value == ''):
-                return ''
-            obj, obs = value.split(': ')
-            return [obj, obs]
+            return '' if (value == '') else value.split(' | ')
 
-class QuantiField(forms.MultiValueField):
+class CircuitoField(forms.MultiValueField):
 
-    widget = QuantiWidget
-
+    widget = CircuitoWidget
     def __init__(self, *args,**kwargs):
-        myChoices = kwargs.pop("choices")
         fields = (
-            forms.ChoiceField(choices=myChoices),
-            forms.CharField(required=False),
+            forms.CharField(label='Circuito'),
+            forms.CharField(label='Fase'),
+            forms.CharField(label='Disjuntor'),
+            forms.CharField(label='Descrição'),
+            forms.CharField(label='Condutor'),
+            forms.CharField(label='Corrente'),
         )
-        super(QuantiField,self).__init__(fields,*args,**kwargs)
-        self.widget=QuantiWidget(choices=myChoices)
+        super(CircuitoField,self).__init__(fields,*args,**kwargs)
     
     def compress(self, value):
-        return f'{value[0]}: {value[1]}' if isinstance(value, list) else ''
-
+        if isinstance(value, list):
+            return ''.join(f'{campo} | ' for campo in value)
+        else: 
+            return ''
 
 class FormRelatorioQuantitativa(forms.ModelForm):
 
@@ -209,8 +212,8 @@ class FormRelatorioQuantitativa(forms.ModelForm):
     verificacao = QualiField(choices = escolhas, label='Verificação das condições de proteção por eqüipotencialização e seccionamento automático da alimentação?')
     ensaiodetensao = QualiField(choices = escolhas, label='Ensaio de tensão aplicada?')
     ensaiodefunc = QualiField(choices = escolhas, label='Ensaio de funcionamento?')
-
+    circuito = CircuitoField(label='Circuito')
 
     class Meta:
         model = models.Relatorio
-        fields = ['capbarramento', 'protgeral', 'protdr', 'protdps', 'vab', 'van', 'ia', 'vbc', 'vbn', 'ib', 'vca', 'vcn', 'ic', 'continuidade', 'resistencia', 'selvpelv', 'verificacao', 'ensaiodetensao', 'ensaiodefunc']
+        fields = ['capbarramento', 'protgeral', 'protdr', 'protdps', 'vab', 'van', 'ia', 'vbc', 'vbn', 'ib', 'vca', 'vcn', 'ic', 'continuidade', 'resistencia', 'selvpelv', 'verificacao', 'ensaiodetensao', 'ensaiodefunc', 'circuito']

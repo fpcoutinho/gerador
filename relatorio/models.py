@@ -100,4 +100,4 @@ class Relatorio(models.Model):
     verificacao = models.CharField(max_length=100, default='')
     ensaiodetensao = models.CharField(max_length=100, default='')
     ensaiodefunc = models.CharField(max_length=100, default='')
-
+    circuito = models.CharField(max_length=100, default='')
