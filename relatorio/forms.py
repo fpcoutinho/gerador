@@ -2,7 +2,7 @@ from email.policy import default
 from django import forms
 from . import models
 from django.forms.widgets import DateTimeInput, RadioSelect, CheckboxSelectMultiple
-
+from django.utils.safestring import mark_safe
 
 # Cria e Edita o relatório inicial, apenas com dados simples.
 class FormRelatorioInicial(forms.ModelForm):
@@ -92,7 +92,7 @@ class QualiWidget(forms.MultiWidget):
         myChoices = kwargs.pop("choices",[])
         widgets = (
             forms.Select(choices=myChoices),
-            forms.Textarea(attrs={'placeholder': 'Observações'}),
+            forms.Textarea(attrs={'placeholder': 'Observações', 'rows':5, 'cols':40}),
         )
         super(QualiWidget, self).__init__(widgets, *args,**kwargs)
     
@@ -161,7 +161,7 @@ class QuantiWidget(forms.MultiWidget):
             forms.Select(choices=myChoices),
             forms.Textarea(attrs={'placeholder': 'Observações'}),
         )
-        super(QualiWidget, self).__init__(widgets, *args,**kwargs)
+        super(QuantiWidget, self).__init__(widgets, *args,**kwargs)
     
     def decompress(self, value):
         if isinstance(value, str):
@@ -172,7 +172,7 @@ class QuantiWidget(forms.MultiWidget):
 
 class QuantiField(forms.MultiValueField):
 
-    widget = QualiWidget
+    widget = QuantiWidget
 
     def __init__(self, *args,**kwargs):
         myChoices = kwargs.pop("choices")
@@ -180,17 +180,37 @@ class QuantiField(forms.MultiValueField):
             forms.ChoiceField(choices=myChoices),
             forms.CharField(required=False),
         )
-        super(QualiField,self).__init__(fields,*args,**kwargs)
-        self.widget=QualiWidget(choices=myChoices)
+        super(QuantiField,self).__init__(fields,*args,**kwargs)
+        self.widget=QuantiWidget(choices=myChoices)
     
     def compress(self, value):
         return f'{value[0]}: {value[1]}' if isinstance(value, list) else ''
 
 
 class FormRelatorioQuantitativa(forms.ModelForm):
-    #exemplo de especificação de field:
-    data = forms.DateTimeField(widget=DateTimeInput(attrs={'type': 'datetime-local'}),input_formats='%d/%m/%Y %H:%M', label='Data e Hora da inspeção:')
+
+    escolhas = [('Sim', 'Sim'), ('Não', 'Não')]
+    capbarramento = forms.IntegerField(label=mark_safe('Parte I: Quadro de Distribuição – Alimentador principal<br><br>Capacidade de barramento'))
+    protgeral = forms.IntegerField(label='Proteção Geral Disjuntor')
+    protdr = forms.IntegerField(label='Proteção DR')
+    protdps = forms.IntegerField(label='Proteção DPS')
+    vab = forms.IntegerField(label='Vab')
+    van = forms.IntegerField(label='Van')
+    ia= forms.IntegerField(label='Ia')
+    vbc = forms.IntegerField(label='Vbc')
+    vbn = forms.IntegerField(label='Vbn')
+    ib= forms.IntegerField(label='Ib')
+    vca = forms.IntegerField(label='Vca')
+    vcn = forms.IntegerField(label='Vcn')
+    ic= forms.IntegerField(label='Ic')
+    continuidade = QualiField(choices = escolhas, label=mark_safe('<br>Parte II: Ensaios Realizados<br><br>Continuidade dos condutores de proteção e das quipotencializações principal e suplementar?'))
+    resistencia = QualiField(choices = escolhas, label='Resistência de isolamento da instalação elétrica?')
+    selvpelv = QualiField(choices = escolhas, label='Resistência de isolamento aplicável a SELV, PELV e separação elétrica?')
+    verificacao = QualiField(choices = escolhas, label='Verificação das condições de proteção por eqüipotencialização e seccionamento automático da alimentação?')
+    ensaiodetensao = QualiField(choices = escolhas, label='Ensaio de tensão aplicada?')
+    ensaiodefunc = QualiField(choices = escolhas, label='Ensaio de funcionamento?')
+
 
     class Meta:
         model = models.Relatorio
-        fields = ['data']
+        fields = ['capbarramento', 'protgeral', 'protdr', 'protdps', 'vab', 'van', 'ia', 'vbc', 'vbn', 'ib', 'vca', 'vcn', 'ic', 'continuidade', 'resistencia', 'selvpelv', 'verificacao', 'ensaiodetensao', 'ensaiodefunc']

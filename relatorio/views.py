@@ -217,7 +217,7 @@ def qualitativas_edita(request, rel_id):
 @login_required(login_url="/accounts/login/")
 def quantitativas_add(request, rel_id):
     relatorio = Relatorio.objects.get(id=rel_id)
-    if relatorio.conferido != '':
+    if relatorio.continuidade != '':
         return render(request, 'relatorio/relatorio_quantitativas_visualiza.html', {'relatorio': relatorio})
         
     form = rel_forms.FormRelatorioQuantitativa(request.POST or None, instance=relatorio)

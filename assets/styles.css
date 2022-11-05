@@ -118,6 +118,13 @@ a:hover, .botao-icon:hover{
     color: #0082c4;
 }
 
+td, th{
+    text-align: center;
+    padding-inline: 5px;
+    border: 1px solid #005b88;
+    border-radius: 20px;
+}
+
 .wrapper{
     margin: 0 auto;
     padding: 20px;

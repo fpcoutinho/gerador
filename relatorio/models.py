@@ -81,5 +81,23 @@ class Relatorio(models.Model):
     paralelismo = models.CharField(max_length=100, default='')
     
     # Campos da Avaliação quantitativa da instalação elétrica.
+    capbarramento = models.PositiveSmallIntegerField(default=0)
+    protgeral = models.PositiveSmallIntegerField(default=0)
+    protdr = models.PositiveSmallIntegerField(default=0)
+    protdps = models.PositiveSmallIntegerField(default=0)
+    vab = models.PositiveSmallIntegerField(default=0)
+    van = models.PositiveSmallIntegerField(default=0)
+    ia= models.PositiveSmallIntegerField(default=0)
+    vbc = models.PositiveSmallIntegerField(default=0)
+    vbn = models.PositiveSmallIntegerField(default=0)
+    ib= models.PositiveSmallIntegerField(default=0)
+    vca = models.PositiveSmallIntegerField(default=0)
+    vcn = models.PositiveSmallIntegerField(default=0)
+    ic= models.PositiveSmallIntegerField(default=0)
+    continuidade = models.CharField(max_length=100, default='')
+    resistencia = models.CharField(max_length=100, default='')
+    selvpelv = models.CharField(max_length=100, default='')
+    verificacao = models.CharField(max_length=100, default='')
+    ensaiodetensao = models.CharField(max_length=100, default='')
+    ensaiodefunc = models.CharField(max_length=100, default='')
 
-    
