@@ -113,7 +113,7 @@ class QualiField(forms.MultiValueField):
             forms.ChoiceField(choices=myChoices),
             forms.CharField(required=False),
         )
-        super(QualiField,self).__init__(fields,*args,**kwargs)
+        super(QualiField,self).__init__(fields, require_all_fields=False, *args,**kwargs)
         self.widget=QualiWidget(choices=myChoices)
     
     def compress(self, value):
