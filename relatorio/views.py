@@ -12,6 +12,7 @@ import os
 from io import BytesIO
 from django.http import FileResponse
 from docxtpl import DocxTemplate
+import ast
 
 
 
@@ -88,10 +89,10 @@ def relatorio_exporta(request, rel_id):
         'dialogo':relatorio.dialogo,
         'curso_nr':relatorio.curso_nr,
         'conferido':relatorio.conferido,
-        'riscos':relatorio.riscos,
-        'equipamentos':relatorio.equipamentos,
+        'riscos': ', '.join(ast.literal_eval(relatorio.riscos)),
+        'equipamentos': ', '.join(ast.literal_eval(relatorio.equipamentos)),
         'desligamento':relatorio.desligamento,
-        'sinalizacao':relatorio.sinalizacao,
+        'sinalizacao': ', '.join(ast.literal_eval(relatorio.sinalizacao)),
         'delimitar_area':relatorio.delimitar_area,
         'auxconces':relatorio.auxconces,
         'tensao':relatorio.tensao,
