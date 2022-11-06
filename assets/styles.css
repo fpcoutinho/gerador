@@ -29,6 +29,16 @@ img{
     vertical-align: bottom;
 }
 
+#botao-usuario{
+    background-color: transparent;
+    color: #005b88;
+}
+
+.btn-check:focus+.btn-secondary, .btn-secondary:focus {
+    border-color: transparent;
+    box-shadow: none;
+}
+
 .loginheader{
     text-align: center;
 }
@@ -109,11 +119,16 @@ h2,h3,h4,h5{
     margin: 0;
 }
 
-a{
+a, .dropdown-item{
     color: #005b88;
 }
+.dropdown-item:hover{
+    text-decoration: none;
+    color: #0082c4;
+    background-color: transparent;
+}
 
-a, a:hover, a:visited{
+a, a:hover, a:visited, .dropdown-item:visited{
     text-decoration: none;
 }
 
@@ -248,7 +263,7 @@ nav li{
     border-color: transparent;
 }
 
-.btn.btn-default.btn-sm:hover{
+.btn.btn-default.btn-sm:hover, .btn-secondary:hover{
     color: #0082c4;
 }
 
