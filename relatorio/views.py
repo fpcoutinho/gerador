@@ -74,6 +74,7 @@ def relatorio_deleta(request, rel_id):
 
 @login_required(login_url="/accounts/login/")
 def relatorio_exporta(request, rel_id):
+    # sourcery skip: simplify-dictionary-update, use-fstring-for-concatenation
     relatorio = Relatorio.objects.get(id=rel_id)
     circuitos = Circuito.objects.filter(rel_pai__pk=rel_id)
     byte_io = BytesIO()
