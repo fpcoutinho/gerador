@@ -2,6 +2,7 @@ from tkinter import Widget
 from django.db import models
 from django.contrib.auth.models import User
 
+
 class Relatorio(models.Model):
 
     # Campos principais do relatório.
@@ -100,4 +101,13 @@ class Relatorio(models.Model):
     verificacao = models.CharField(max_length=100, default='')
     ensaiodetensao = models.CharField(max_length=100, default='')
     ensaiodefunc = models.CharField(max_length=100, default='')
-    circuito = models.CharField(max_length=100, default='')
+
+class Circuito(models.Model):
+    rel_pai = models.ForeignKey(Relatorio, on_delete=models.CASCADE)
+    modelo = models.CharField(max_length=100, default='')
+    fase = models.CharField(max_length=100, default='')
+    disjuntor = models.CharField(max_length=100, default='')
+    descricao = models.CharField(max_length=100, default='')
+    condutor = models.CharField(max_length=100, default='')
+    corrente = models.CharField(max_length=100, default='')
+

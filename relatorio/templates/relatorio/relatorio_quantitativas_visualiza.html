@@ -60,10 +60,7 @@
                                 </tr>
                         </table>
                         <br>
-                        <h3>Parte II: Medições de Circuitos Terminais</h3>
-                        <br>
-                        <br>
-                        <h3>Parte III: Ensaios Realizados</h3>
+                        <h3>Parte II: Ensaios Realizados</h3>
                         <br>
                         <p><b>Continuidade dos condutores de proteção e das quipotencializações principal e suplementar?</b> {{ relatorio.continuidade }}</p>
                         <p><b>Resistência de isolamento da instalação elétrica?</b>{{ relatorio.resistencia }}</p>
@@ -71,8 +68,38 @@
                         <p><b>Verificação das condições de proteção por eqüipotencialização e seccionamento automático da alimentação?</b>{{ relatorio.verificacao }}</p>
                         <p><b>Ensaio de tensão aplicada?</b>{{ relatorio.ensaiodetensao }}</p>
                         <p><b>Ensaio de funcionamento?</b>{{ relatorio.ensaiodefunc }}</p>
-                    
+                        <br>
+                        <br>
+                        <h3>Parte III: Medições de Circuitos Terminais</h3>
+                        <br>
+                        <table>
+                                <tr>
+                                        <th>Circuito</th>
+                                        <th>Fase</th>
+                                        <th>Disjuntor</th>
+                                        <th>Descrição</th>
+                                        <th>Condutor</th>
+                                        <th>Corrente</th>
+                                </tr>
+                        {% for circuito in circuitos %}
+                                <tr>
+                                        <td>{{ circuito.modelo }}</td>
+                                        <td>{{ circuito.fase }}</td>
+                                        <td>{{ circuito.disjuntor }}</td>
+                                        <td>{{ circuito.descricao }}</td>
+                                        <td>{{ circuito.condutor }}</td>
+                                        <td>{{ circuito.corrente }}</td>
+                                </tr>
+                        {% endfor %}
+                        </table>
+                        <br>
+
+                        <a class="botao-icon" href="{% url 'relatorio:addcircuito' rel_id=relatorio.id %}">
+                                <span class="glyphicon glyphicon-plus-sign"></span>
+                                Add Circuito
+                        </a>
         </div>
+        
 </div>
 
 {% endblock %}

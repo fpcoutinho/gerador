@@ -212,8 +212,21 @@ class FormRelatorioQuantitativa(forms.ModelForm):
     verificacao = QualiField(choices = escolhas, label='Verificação das condições de proteção por eqüipotencialização e seccionamento automático da alimentação?')
     ensaiodetensao = QualiField(choices = escolhas, label='Ensaio de tensão aplicada?')
     ensaiodefunc = QualiField(choices = escolhas, label='Ensaio de funcionamento?')
-    circuito = CircuitoField(label='Circuito')
 
     class Meta:
         model = models.Relatorio
-        fields = ['capbarramento', 'protgeral', 'protdr', 'protdps', 'vab', 'van', 'ia', 'vbc', 'vbn', 'ib', 'vca', 'vcn', 'ic', 'continuidade', 'resistencia', 'selvpelv', 'verificacao', 'ensaiodetensao', 'ensaiodefunc', 'circuito']
+        fields = ['capbarramento', 'protgeral', 'protdr', 'protdps', 'vab', 'van', 'ia', 'vbc', 'vbn', 'ib', 'vca', 'vcn', 'ic', 'continuidade', 'resistencia', 'selvpelv', 'verificacao', 'ensaiodetensao', 'ensaiodefunc']
+
+class FormCircuito(forms.ModelForm):
+       
+    modelo = forms.CharField(label='Circuito')
+    fase = forms.CharField(label='Fase')
+    disjuntor = forms.CharField(label='Disjuntor')
+    descricao = forms.CharField(label='Descrição')
+    condutor = forms.CharField(label='Condutor')
+    corrente = forms.CharField(label='Corrente')
+
+    class Meta:
+        model = models.Circuito
+        fields = ['modelo', 'fase', 'disjuntor', 'descricao', 'condutor', 'corrente']
+

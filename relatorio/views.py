@@ -3,7 +3,7 @@ from django.shortcuts import render
 from django.shortcuts import render, redirect
 from django import forms
 from datetime import datetime
-from .models import Relatorio
+from .models import Relatorio, Circuito
 from . import forms as rel_forms
 from django.contrib import messages
 from django.utils import timezone
@@ -260,8 +260,9 @@ def qualitativas_edita(request, rel_id):
 @login_required(login_url="/accounts/login/")
 def quantitativas_add(request, rel_id):
     relatorio = Relatorio.objects.get(id=rel_id)
+    circuitos = Circuito.objects.filter(rel_pai__pk=rel_id)
     if relatorio.continuidade != '':
-        return render(request, 'relatorio/relatorio_quantitativas_visualiza.html', {'relatorio': relatorio})
+        return render(request, 'relatorio/relatorio_quantitativas_visualiza.html', {'relatorio': relatorio, 'circuitos':circuitos})
         
     form = rel_forms.FormRelatorioQuantitativa(request.POST or None, instance=relatorio)
     if form.is_valid():
@@ -286,4 +287,14 @@ def quantitativas_edita(request, rel_id):
         return redirect('relatorio:visualiza', rel_id)
     return render(request, 'relatorio/relatorio_edita.html', {'relatorio': relatorio,  'form':form})
 
+@login_required(login_url="/accounts/login/")
+def circuito_add(request, rel_id):
+    form = rel_forms.FormCircuito(request.POST or None)
+    relatorio = Relatorio.objects.get(id=rel_id)
+    if form.is_valid():
+        instance = form.save(commit=False)
+        instance.rel_pai = relatorio
+        instance.save()
+        return redirect('relatorio:visualiza', rel_id)
 
+    return render(request, 'relatorio/circuito_add.html', {'form': form, 'rel_pai':rel_id})
