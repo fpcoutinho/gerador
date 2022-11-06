@@ -75,6 +75,7 @@ def relatorio_deleta(request, rel_id):
 @login_required(login_url="/accounts/login/")
 def relatorio_exporta(request, rel_id):
     relatorio = Relatorio.objects.get(id=rel_id)
+    circuitos = Circuito.objects.filter(rel_pai__pk=rel_id)
     byte_io = BytesIO()
     doc = DocxTemplate("C:\\Users\\fpcou\OneDrive\Documentos\workspace\gerador\\relatorio\\assets\\template.docx")
     context = { 
@@ -165,6 +166,17 @@ def relatorio_exporta(request, rel_id):
         'ensaiodetensao':relatorio.ensaiodetensao.split(': '),
         'ensaiodefunc':relatorio.ensaiodefunc.split(': '),
     }
+
+    for i in range(len(circuitos)):
+        numero = str(i)
+        context.update({('circuito'+numero):circuitos[i].modelo})
+        context.update({('fase'+numero):circuitos[i].fase})
+        context.update({('disjuntor'+numero):circuitos[i].disjuntor})
+        context.update({('descricao'+numero):circuitos[i].descricao})
+        context.update({('condutor'+numero):circuitos[i].condutor})
+        context.update({('corrente'+numero):circuitos[i].corrente})
+
+
     doc.render(context)
     doc.save(byte_io)
     byte_io.seek(0)
