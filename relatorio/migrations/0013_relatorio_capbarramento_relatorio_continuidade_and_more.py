@@ -18,7 +18,7 @@ class Migration(migrations.Migration):
         migrations.AddField(
             model_name='relatorio',
             name='continuidade',
-            field=models.CharField(default='Continuidade dos condutores de proteção e das quipotencializações principal e suplementar?', max_length=100),
+            field=models.CharField(default='', max_length=100),
         ),
         migrations.AddField(
             model_name='relatorio',
@@ -68,7 +68,7 @@ class Migration(migrations.Migration):
         migrations.AddField(
             model_name='relatorio',
             name='selvpelv',
-            field=models.CharField(default='Resistência de isolamento aplicável a SELV, PELV e separação elétrica?', max_length=100),
+            field=models.CharField(default='', max_length=100),
         ),
         migrations.AddField(
             model_name='relatorio',
@@ -103,6 +103,6 @@ class Migration(migrations.Migration):
         migrations.AddField(
             model_name='relatorio',
             name='verificacao',
-            field=models.CharField(default='Verificação das condições de proteção por eqüipotencialização e seccionamento automático da alimentação?', max_length=100),
+            field=models.CharField(default='', max_length=100),
         ),
     ]
