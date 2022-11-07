@@ -1,7 +1,7 @@
 from email.policy import default
 from django import forms
 from . import models
-from django.forms.widgets import DateTimeInput, RadioSelect, CheckboxSelectMultiple
+from django.forms.widgets import DateTimeInput, RadioSelect, CheckboxSelectMultiple, ClearableFileInput
 from django.utils.safestring import mark_safe
 
 # Cria e Edita o relatório inicial, apenas com dados simples.
@@ -14,7 +14,6 @@ class FormRelatorioInicial(forms.ModelForm):
     class Meta:
         model = models.Relatorio
         fields = ['data', 'local', 'temperatura', 'clima', 'responsaveis']
-
 
 # Avaliação e planejamento da execução.
 class FormRelatorioDePlanejamento(forms.ModelForm):

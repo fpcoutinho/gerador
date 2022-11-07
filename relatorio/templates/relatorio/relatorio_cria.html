@@ -8,6 +8,7 @@
                 <form class="site-form" action="{% url 'relatorio:cria' %}" method="post">
                     {% csrf_token %}
                     {{ form.as_p }}
+                    <input type="file" name="imagens" multiple/>
                     <input type="submit" value="Criar">
                 </form>
         </div>

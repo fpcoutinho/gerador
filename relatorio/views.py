@@ -3,7 +3,7 @@ from django.shortcuts import render
 from django.shortcuts import render, redirect
 from django import forms
 from datetime import datetime
-from .models import Relatorio, Circuito
+from .models import Relatorio, Circuito, Imagens
 from . import forms as rel_forms
 from django.contrib import messages
 from django.utils import timezone
@@ -30,20 +30,24 @@ def relatorio_list(request):
 @login_required(login_url="/accounts/login/")
 def relatorio_visualiza(request, rel_id):
     relatorio = Relatorio.objects.get(id=rel_id)
+    imagens = Imagens.objects.filter(rel_pai__pk=rel_id)
     now = timezone.now()
-    return render(request, 'relatorio/relatorio_visualiza.html', {'relatorio': relatorio})
-
+    return render(request, 'relatorio/relatorio_visualiza.html', {'relatorio': relatorio, 'imagens':imagens})
 
 @login_required(login_url="/accounts/login/")
 def relatorio_cria(request):
     if request.method == 'POST':
         form = rel_forms.FormRelatorioInicial(request.POST)
+        imagens = request.FILES.getlist('imagens')
         if form.is_valid():
             usuario = request.user
             relatorios = Relatorio.objects.filter(autor=usuario)
             instance = form.save(commit=False)
             instance.autor = usuario
             instance.save()
+            for imagem in imagens:
+                instance_img = Imagens(rel_pai=instance, imagens=imagem)
+                instance_img.save()
             return redirect('relatorio:visualiza', instance.id)
     else:
         form = rel_forms.FormRelatorioInicial()
@@ -186,7 +190,7 @@ def relatorio_exporta(request, rel_id):
 @login_required(login_url="/accounts/login/")
 def planejamento_add(request, rel_id):
     relatorio = Relatorio.objects.get(id=rel_id)
-    if relatorio.tempambiente != '':
+    if relatorio.qualiprof != '':
         return render(request, 'relatorio/relatorio_planejamento_visualiza.html', {'relatorio': relatorio})
         
     form = rel_forms.FormRelatorioDePlanejamento(request.POST or None, instance=relatorio)

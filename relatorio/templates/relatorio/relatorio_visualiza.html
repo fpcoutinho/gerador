@@ -31,6 +31,14 @@
                 <p><b>Condições Climáticas:</b> {{relatorio.clima}} </p>
                 <p><b>Responsáveis pela Inspeção:</b>  {{ relatorio.responsaveis }}</p>
                 <br>
+
+                
+                {%if imagens %}
+                <p><b>Imagens:</b></p>
+                {% for imagem in imagens %}
+                        <img src='{{ imagem.url }}'>
+                {% endfor %}                        
+                {%endif%}
                 <nav>
                         <li>
                                 <a class="botao-icon" href="{% url 'relatorio:addplanejamento' rel_id=relatorio.id %}">

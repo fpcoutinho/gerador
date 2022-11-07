@@ -12,7 +12,7 @@ class Relatorio(models.Model):
     temperatura = models.IntegerField()
     clima = models.CharField(max_length=100)
     responsaveis = models.TextField(blank=True)
-
+    
     # Campos da Avaliação e planejamento da execução.
     qualiprof = models.CharField(max_length=100, default='')
     riscos = models.CharField(max_length=100, default='')
@@ -31,7 +31,6 @@ class Relatorio(models.Model):
     cinto_seg = models.CharField(max_length=4, default='')
     requi_seg = models.CharField(max_length=4, default='')
     reavaliacao = models.CharField(max_length=4, default='')
-
 
     # Campos da Avaliação das influencias externas da instalação elétrica.
     tempambiente = models.CharField(max_length=100, default='')
@@ -111,3 +110,6 @@ class Circuito(models.Model):
     condutor = models.CharField(max_length=100, default='')
     corrente = models.CharField(max_length=100, default='')
 
+class Imagens(models.Model):
+    rel_pai = models.ForeignKey(Relatorio, on_delete=models.CASCADE)
+    imagens = models.FileField(upload_to='media/', blank=True, null=True)
