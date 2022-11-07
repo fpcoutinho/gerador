@@ -1,0 +1,305 @@
+@import url('https://fonts.googleapis.com/css?family=Pacifico');
+
+body{
+    background-color: #ffffff;
+    color: #005b88;
+    padding: 0 1px 0 1px;
+    font-family: Pacifico;
+    font-size: medium;
+}
+
+p.obs{
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    width: 330px;
+    word-wrap: break-word;
+    padding-bottom: 1%;
+}
+
+p.obs:hover{
+    white-space: pre-wrap;
+    overflow: visible;
+    width: 100%;
+}
+
+img{
+    width: 60px;
+    height: auto;
+    vertical-align: bottom;
+}
+
+#botao-usuario{
+    background-color: transparent;
+    color: #005b88;
+}
+
+.btn-check:focus+.btn-secondary, .btn-secondary:focus {
+    border-color: transparent;
+    box-shadow: none;
+}
+
+.loginheader{
+    text-align: center;
+}
+
+.visualizalogin{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.login{
+    width: 300px;
+    border: 1px solid #005b88;
+    align-self: center;
+    text-align: center;
+    margin: 20px;
+    padding: 20px;
+    align-items: center;
+    display: block;
+}
+
+.login input, .compromisso-visualiza, .criaCompromisso{
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+
+
+.compromissos{
+    width: 100%;
+    display: table;
+    border: 1px solid #005b88;
+}
+.compromisso{
+    width: 350px;
+    border-radius: 20px;
+    float: left;
+    box-shadow: -2px 3px #005b88bd;
+    border: 2px solid #005b88;
+    margin: 30px;
+    padding: 20px;
+}
+
+.compromisso-visualiza-wrapper{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    justify-self: center;
+}
+
+.compromisso-visualiza{
+    width: 800px;
+    border-radius: 20px;
+    align-self: center;
+    text-align: center;
+    border: 2px solid #005b88;
+    margin: 40px;
+    padding: 30px;
+    font-size: 17px;
+}
+.compromisso-visualiza p{
+    display: table;
+    text-justify: auto;
+}
+
+table{
+    margin: auto;
+}
+
+h1 a{
+    font-weight: normal;
+    font-size: 30px;
+    margin: 0;
+}
+
+
+h2,h3,h4,h5{
+    color: #005b88;
+    font-weight: normal;
+    margin: 0;
+}
+
+a, .dropdown-item{
+    color: #005b88;
+}
+.dropdown-item:hover{
+    text-decoration: none;
+    color: #0082c4;
+    background-color: transparent;
+}
+
+a, a:hover, a:visited, .dropdown-item:visited{
+    text-decoration: none;
+}
+
+a:hover, .botao-icon:hover{
+    color: #0082c4;
+}
+
+td, th{
+    text-align: center;
+    padding-inline: 5px;
+    border: 1px solid #005b88;
+    border-radius: 20px;
+}
+
+.wrapper{
+    margin: 0 auto;
+    padding: 20px;
+}
+
+header{
+    display: grid;
+    align-self: center;
+    grid-template-columns: 1fr 1fr;
+    padding: 20px 0;
+}
+
+nav{
+    justify-self: end;
+}
+
+nav li{
+    display: inline-block;
+    margin-left: 20px;
+}
+
+.form-inline {
+    display: inline-table;
+}
+
+.botao-icon{
+    display: table-cell;
+    background: none;
+    font-family: Pacifico;
+    color: #005b88;
+    cursor: pointer;
+    size-adjust: 2px;
+    border-width: 0;
+    cursor: pointer;
+    padding-left: 15px;
+}
+
+
+.glyphicon:hover{
+    color: #0082c4;
+}
+
+.meuscompromissosdiv{
+    display: inline-table;
+}
+
+.criaCompromisso{
+    display: block;
+    width: 900px;
+    border: 1px solid #005b88;
+    margin: 20px;
+    padding: 20px;
+    padding-left: 3%;
+}
+
+.site-form input, .site-form textarea, .siteform select{
+    color: #0f121f;
+    background-color: #f8fcff;
+    margin: 20px 10px 10px 0;
+    padding: 10px;
+    text-align: center;
+}
+
+
+.criaCompromisso input, .criaCompromisso textarea, .criaCompromisso select{
+    display:inline-table;
+    margin-right: auto;
+}
+
+.criaCompromisso input[value="Criar"], .criaCompromisso input[value="Atualizar"]{
+    margin-left: 47%;
+    color: #005b88;
+    font-family: Pacifico;
+}
+
+.login input, .login textarea, .login select{
+    display:block;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.helptext, .helptext ul{
+    margin: 0 auto 20px;
+    color: rgb(255, 0, 0);
+    font-size: 0.85em;
+    display: block;
+}
+
+.help-block strong, .errorlist li{
+    padding: 10px;
+    border: 1px solid #ff5722;
+    color: #ff5722;
+    margin: 10px 0;
+}
+
+.errormsg{
+    padding: 10px;
+    border: 1px solid #ff5722;
+    color: #ff5722;
+    margin: 10px 0;
+}
+
+.btn-outline-secondary{
+    background-color: #005b88;
+    color: #f8fcff;
+    border: 1px solid #005b88;
+}
+
+#searchbutton{
+    color: #005b88;
+    background-color: #ffffff;
+    border: 0px;
+}
+
+.btn.btn-default.btn-sm{
+    color: #005b88;
+    background-color: transparent;
+    border-color: transparent;
+}
+
+.btn.btn-default.btn-sm:hover, .btn-secondary:hover{
+    color: #0082c4;
+}
+
+.site-form div{
+    border: 1px solid #005b88;
+    width: 70%;
+    background-color: #f8fcff;
+    text-align: center;
+    align-items: center;
+    padding-bottom: 5px;
+}
+
+.site-form div div{
+    border: none;
+    width: 180px;
+    display: inline-block;
+    margin: 5px;
+    padding: 5px;
+}
+
+.site-form p{
+    display: grid;
+}
+
+.site-form p label{
+    font-size: 19px;
+}
+
+.site-form div label{
+    font-size: 15px;
+}
+
+ul#id_especialista li{
+    display: inline-block;
+}
+
+#id_condambiente, #id_infleletro{
+    width:100%;
+}
