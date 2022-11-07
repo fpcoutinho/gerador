@@ -14,9 +14,9 @@ class Relatorio(models.Model):
     
     # Campos da Avaliação e planejamento da execução.
     qualiprof = models.CharField(max_length=100, default='')
-    riscos = models.CharField(max_length=100, default='')
-    equipamentos = models.CharField(max_length=100, default='')
-    sinalizacao = models.CharField(max_length=100, default='')
+    riscos = models.CharField(max_length=100, default='[]')
+    equipamentos = models.CharField(max_length=100, default='[]')
+    sinalizacao = models.CharField(max_length=100, default='[]')
     desligamento = models.CharField(max_length=4, default='')
     integridade = models.CharField(max_length=4, default='')
     dialogo = models.CharField(max_length=4, default='')

@@ -17,6 +17,10 @@ import django_heroku
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
+SITE_ROOT = os.path.dirname(os.path.abspath(os.path.realpath(__file__)))
+PROJECT_PATH = os.path.dirname(os.path.dirname(os.path.abspath(os.path.realpath(__file__))))
+
+
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/4.1/howto/deployment/checklist/

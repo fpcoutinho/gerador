@@ -14,6 +14,7 @@ from django.http import FileResponse
 from docxtpl import DocxTemplate, InlineImage
 from docx.shared import Mm
 import ast
+from django.conf import settings
 
 
 
@@ -88,7 +89,8 @@ def relatorio_exporta(request, rel_id):
     circuitos = Circuito.objects.filter(rel_pai__pk=rel_id)
     imagens = Imagens.objects.filter(rel_pai__pk=rel_id)
     byte_io = BytesIO()
-    doc = DocxTemplate("C:\\Users\\fpcou\OneDrive\Documentos\workspace\gerador\\relatorio\\assets\\template.docx")
+    base = settings.PROJECT_PATH
+    doc = DocxTemplate(os.path.join(base, "relatorio/assets/template.docx"))
     context = { 
         'data':relatorio.data.strftime('%d/%m/%Y'),
         'hora':relatorio.data.strftime('%H:%M'),
@@ -187,7 +189,7 @@ def relatorio_exporta(request, rel_id):
         context.update({('condutor'+numero):circuitos[i].condutor})
         context.update({('corrente'+numero):circuitos[i].corrente})
 
-    fotos = [InlineImage(doc, "C:/Users/fpcou/OneDrive/Documentos/workspace/gerador/" + str(i.img.url), width = Mm(50)) for i in imagens]
+    fotos = [InlineImage(doc, base + i.img.url, width = Mm(50)) for i in imagens]
     context.update({'imagens':fotos})
 
     doc.render(context)
