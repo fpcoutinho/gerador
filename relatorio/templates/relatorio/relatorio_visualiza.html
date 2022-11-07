@@ -33,12 +33,10 @@
                 <br>
 
                 
-                {%if imagens %}
                 <p><b>Imagens:</b></p>
                 {% for imagem in imagens %}
-                        <img src='{{ imagem.url }}'>
+                        <p><img src='{{ imagem.img.url }}'></p>
                 {% endfor %}                        
-                {%endif%}
                 <nav>
                         <li>
                                 <a class="botao-icon" href="{% url 'relatorio:addplanejamento' rel_id=relatorio.id %}">

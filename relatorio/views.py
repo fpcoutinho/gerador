@@ -38,15 +38,15 @@ def relatorio_visualiza(request, rel_id):
 def relatorio_cria(request):
     if request.method == 'POST':
         form = rel_forms.FormRelatorioInicial(request.POST)
-        imagens = request.FILES.getlist('imagens')
         if form.is_valid():
             usuario = request.user
             relatorios = Relatorio.objects.filter(autor=usuario)
             instance = form.save(commit=False)
             instance.autor = usuario
             instance.save()
+            imagens = request.FILES.getlist('imagens[]')
             for imagem in imagens:
-                instance_img = Imagens(rel_pai=instance, imagens=imagem)
+                instance_img = Imagens(rel_pai=instance, img=imagem)
                 instance_img.save()
             return redirect('relatorio:visualiza', instance.id)
     else:

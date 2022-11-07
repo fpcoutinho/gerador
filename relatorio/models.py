@@ -112,4 +112,4 @@ class Circuito(models.Model):
 
 class Imagens(models.Model):
     rel_pai = models.ForeignKey(Relatorio, on_delete=models.CASCADE)
-    imagens = models.FileField(upload_to='media/', blank=True, null=True)
+    img = models.FileField(upload_to='media/', blank=True, null=True)

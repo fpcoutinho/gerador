@@ -5,10 +5,13 @@
         <h2 class="loginheader">Criar Relatório</h2>
         <div class="compromisso-visualiza-wrapper">
             <div class="criaCompromisso">
-                <form class="site-form" action="{% url 'relatorio:cria' %}" method="post">
+                <form class="site-form" enctype="multipart/form-data" action="{% url 'relatorio:cria' %}" method="post">
                     {% csrf_token %}
                     {{ form.as_p }}
-                    <input type="file" name="imagens" multiple/>
+                    <p>
+                    <label for="id_imagens">Imagens:</label>
+                    <input type="file" name="imagens[]" required id="id_imagens" multiple>
+                    </p>
                     <input type="submit" value="Criar">
                 </form>
         </div>
