@@ -34,9 +34,13 @@
 
                 
                 <p><b>Imagens:</b></p>
+                <table style="margin:inherit;">
+                        <tr>
                 {% for imagem in imagens %}
-                        <p><img src='{{ imagem.img.url }}'></p>
-                {% endfor %}                        
+                                <td><img src='{{ imagem.img.url }}'></td>
+                {% endfor %}
+                        </tr>
+                </table>                        
                 <nav>
                         <li>
                                 <a class="botao-icon" href="{% url 'relatorio:addplanejamento' rel_id=relatorio.id %}">

@@ -11,7 +11,8 @@ from django.contrib.auth.decorators import login_required
 import os
 from io import BytesIO
 from django.http import FileResponse
-from docxtpl import DocxTemplate
+from docxtpl import DocxTemplate, InlineImage
+from docx.shared import Mm
 import ast
 
 
@@ -63,6 +64,10 @@ def relatorio_edita(request, rel_id):
         relatorios2 = relatorios.exclude(id=rel_id)
         instance = form.save(commit=False)
         instance.save()
+        imagens = request.FILES.getlist('imagens[]')
+        for imagem in imagens:
+            instance_img = Imagens(rel_pai=instance, img=imagem)
+            instance_img.save()
         return redirect('relatorio:visualiza', instance.id)
         
     return render(request, 'relatorio/relatorio_edita.html', {'relatorio': relatorio,  'form':form})
@@ -81,6 +86,7 @@ def relatorio_exporta(request, rel_id):
     # sourcery skip: simplify-dictionary-update, use-fstring-for-concatenation
     relatorio = Relatorio.objects.get(id=rel_id)
     circuitos = Circuito.objects.filter(rel_pai__pk=rel_id)
+    imagens = Imagens.objects.filter(rel_pai__pk=rel_id)
     byte_io = BytesIO()
     doc = DocxTemplate("C:\\Users\\fpcou\OneDrive\Documentos\workspace\gerador\\relatorio\\assets\\template.docx")
     context = { 
@@ -181,6 +187,8 @@ def relatorio_exporta(request, rel_id):
         context.update({('condutor'+numero):circuitos[i].condutor})
         context.update({('corrente'+numero):circuitos[i].corrente})
 
+    fotos = [InlineImage(doc, "C:/Users/fpcou/OneDrive/Documentos/workspace/gerador/" + str(i.img.url), width = Mm(50)) for i in imagens]
+    context.update({'imagens':fotos})
 
     doc.render(context)
     doc.save(byte_io)
@@ -195,12 +203,16 @@ def planejamento_add(request, rel_id):
         
     form = rel_forms.FormRelatorioDePlanejamento(request.POST or None, instance=relatorio)
     if form.is_valid():
-            usuario = relatorio.autor
-            relatorios = Relatorio.objects.filter(autor=usuario)
-            relatorios2 = relatorios.exclude(id=rel_id)
-            instance = form.save(commit=False)
-            instance.save()
-            return redirect('relatorio:visualiza', rel_id)
+        usuario = relatorio.autor
+        relatorios = Relatorio.objects.filter(autor=usuario)
+        relatorios2 = relatorios.exclude(id=rel_id)
+        instance = form.save(commit=False)
+        instance.save()
+        imagens = request.FILES.getlist('imagens[]')
+        for imagem in imagens:
+            instance_img = Imagens(rel_pai=instance, img=imagem)
+            instance_img.save()
+        return redirect('relatorio:visualiza', rel_id)
     return render(request, 'relatorio/relatorio_edita.html', {'relatorio': relatorio,  'form':form})
 
 @login_required(login_url="/accounts/login/")
@@ -213,6 +225,10 @@ def planejamento_edita(request, rel_id):
         relatorios2 = relatorios.exclude(id=rel_id)
         instance = form.save(commit=False)
         instance.save()
+        imagens = request.FILES.getlist('imagens[]')
+        for imagem in imagens:
+            instance_img = Imagens(rel_pai=instance, img=imagem)
+            instance_img.save()
         return redirect('relatorio:visualiza', rel_id)
     return render(request, 'relatorio/relatorio_edita.html', {'relatorio': relatorio,  'form':form})
 
@@ -224,12 +240,17 @@ def externas_add(request, rel_id):
         
     form = rel_forms.FormRelatorioExternas(request.POST or None, instance=relatorio)
     if form.is_valid():
-            usuario = relatorio.autor
-            relatorios = Relatorio.objects.filter(autor=usuario)
-            relatorios2 = relatorios.exclude(id=rel_id)
-            instance = form.save(commit=False)
-            instance.save()
-            return redirect('relatorio:visualiza', rel_id)
+        usuario = relatorio.autor
+        relatorios = Relatorio.objects.filter(autor=usuario)
+        relatorios2 = relatorios.exclude(id=rel_id)
+        instance = form.save(commit=False)
+        instance.save()
+        imagens = request.FILES.getlist('imagens[]')
+        for imagem in imagens:
+            instance_img = Imagens(rel_pai=instance, img=imagem)
+            instance_img.save()
+
+        return redirect('relatorio:visualiza', rel_id)
     return render(request, 'relatorio/relatorio_edita.html', {'relatorio': relatorio,  'form':form})
 
 @login_required(login_url="/accounts/login/")
@@ -242,6 +263,11 @@ def externas_edita(request, rel_id):
         relatorios2 = relatorios.exclude(id=rel_id)
         instance = form.save(commit=False)
         instance.save()
+        imagens = request.FILES.getlist('imagens[]')
+        for imagem in imagens:
+            instance_img = Imagens(rel_pai=instance, img=imagem)
+            instance_img.save()
+
         return redirect('relatorio:visualiza', rel_id)
     return render(request, 'relatorio/relatorio_edita.html', {'relatorio': relatorio,  'form':form})
 
@@ -258,6 +284,11 @@ def qualitativas_add(request, rel_id):
             relatorios2 = relatorios.exclude(id=rel_id)
             instance = form.save(commit=False)
             instance.save()
+            imagens = request.FILES.getlist('imagens[]')
+            for imagem in imagens:
+                instance_img = Imagens(rel_pai=instance, img=imagem)
+                instance_img.save()
+
             return redirect('relatorio:visualiza', rel_id)
     return render(request, 'relatorio/relatorio_edita.html', {'relatorio': relatorio,  'form':form})
 
@@ -271,6 +302,11 @@ def qualitativas_edita(request, rel_id):
         relatorios2 = relatorios.exclude(id=rel_id)
         instance = form.save(commit=False)
         instance.save()
+        imagens = request.FILES.getlist('imagens[]')
+        for imagem in imagens:
+            instance_img = Imagens(rel_pai=instance, img=imagem)
+            instance_img.save()
+
         return redirect('relatorio:visualiza', rel_id)
     return render(request, 'relatorio/relatorio_edita.html', {'relatorio': relatorio,  'form':form})
 
@@ -288,7 +324,12 @@ def quantitativas_add(request, rel_id):
             relatorios2 = relatorios.exclude(id=rel_id)
             instance = form.save(commit=False)
             instance.save()
+            imagens = request.FILES.getlist('imagens[]')
+            for imagem in imagens:
+                instance_img = Imagens(rel_pai=instance, img=imagem)
+                instance_img.save()
             return redirect('relatorio:visualiza', rel_id)
+
     return render(request, 'relatorio/relatorio_edita.html', {'relatorio': relatorio,  'form':form})
 
 @login_required(login_url="/accounts/login/")
@@ -301,6 +342,10 @@ def quantitativas_edita(request, rel_id):
         relatorios2 = relatorios.exclude(id=rel_id)
         instance = form.save(commit=False)
         instance.save()
+        imagens = request.FILES.getlist('imagens[]')
+        for imagem in imagens:
+            instance_img = Imagens(rel_pai=instance, img=imagem)
+            instance_img.save()
         return redirect('relatorio:visualiza', rel_id)
     return render(request, 'relatorio/relatorio_edita.html', {'relatorio': relatorio,  'form':form})
 
