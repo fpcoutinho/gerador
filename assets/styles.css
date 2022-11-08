@@ -70,6 +70,12 @@ img{
     width: 100%;
     display: table;
     border: 1px solid #005b88;
+    align-self: center;
+    margin: 40px;
+    margin-top: 5px;
+    margin-left: auto;
+    font-size: 17px;
+    position: relative;
 }
 #relatorio{
     width: 309px;
