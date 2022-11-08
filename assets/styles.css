@@ -192,8 +192,14 @@ nav a{
     display: inline-table;
 }
 
+
+@media (min-width: 768px){
+    .navbar-collapse.collapse {
+        display: flex!important;
+    }
+}
+
 #botao-icon{
-    display: table-cell;
     background: none;
     font-family: Pacifico;
     color: #005b88;
@@ -217,7 +223,6 @@ nav a{
     font-size: 23px;
     cursor:default;
 }
-
 
 #meusrelatoriosdiv{
     display: inline-table;
