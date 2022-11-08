@@ -3,22 +3,22 @@
 {% block content %}
 <header style="margin-inline:5%;">
         <h2>
-                <button class="botao-icon" onclick="history.back()">
+                <button id="botao-icon" onclick="history.back()">
                         <span class="glyphicon glyphicon-circle-arrow-left"></span>
                 </button>
                 Avaliação quantitativa da instalação elétrica
         </h2>
         <nav>
         <li>
-                <a class="botao-icon" href="{% url 'relatorio:editaquantitativas' rel_id=relatorio.id %}">
+                <a id="botao-icon" href="{% url 'relatorio:editaquantitativas' rel_id=relatorio.id %}">
                         <span class="glyphicon glyphicon-edit"></span> editar
                 </a>
         </li>
         </nav>
 </header>
 
-<div class="compromisso-visualiza-wrapper">
-        <div class="compromisso-visualiza">
+<div id="relatorio-visualiza-wrapper">
+        <div id="relatorio-visualiza">
                         <h3>Parte I: Quadro de Distribuição – Alimentador principal</h3>
                         <br>
                         <p><b>Capacidade de barramento:</b>{{ relatorio.capbarramento }}</p>
@@ -94,7 +94,7 @@
                         </table>
                         <br>
 
-                        <a class="botao-icon" href="{% url 'relatorio:addcircuito' rel_id=relatorio.id %}">
+                        <a id="botao-icon" href="{% url 'relatorio:addcircuito' rel_id=relatorio.id %}">
                                 <span class="glyphicon glyphicon-plus-sign"></span>
                                 Add Circuito
                         </a>

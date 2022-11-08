@@ -3,22 +3,22 @@
 {% block content %}
 <header style="margin-inline:5%;">
         <h2>
-                <button class="botao-icon" onclick="history.back()">
+                <button id="botao-icon" onclick="history.back()">
                         <span class="glyphicon glyphicon-circle-arrow-left"></span>
                 </button>
                 Avaliação das influencias externas da instalação elétrica
         </h2>
         <nav>
         <li>
-                <a class="botao-icon" href="{% url 'relatorio:editaexternas' rel_id=relatorio.id %}">
+                <a id="botao-icon" href="{% url 'relatorio:editaexternas' rel_id=relatorio.id %}">
                         <span class="glyphicon glyphicon-edit"></span> editar
                 </a>
         </li>
         </nav>
 </header>
 
-<div class="compromisso-visualiza-wrapper">
-        <div class="compromisso-visualiza">
+<div id="relatorio-visualiza-wrapper">
+        <div id="relatorio-visualiza">
                 <p><b>Temperatura Ambiente: </b> {{relatorio.tempambiente}}</p>
                 <p><b>Condições climáticas do ambiente: </b> {{ relatorio.condambiente }}</p>
                 <p><b>Altitude: </b> {{ relatorio.altitude }}</p>

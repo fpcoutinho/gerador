@@ -3,22 +3,22 @@
 {% block content %}
 <header style="margin-inline:5%;">
         <h2>
-                <button class="botao-icon" onclick="history.back()">
+                <button id="botao-icon" onclick="history.back()">
                         <span class="glyphicon glyphicon-circle-arrow-left"></span>
                 </button>
                 Avaliação e planejamento da execução
         </h2>
         <nav>
         <li>
-                <a class="botao-icon" href="{% url 'relatorio:editaplanejamento' rel_id=relatorio.id %}">
+                <a id="botao-icon" href="{% url 'relatorio:editaplanejamento' rel_id=relatorio.id %}">
                         <span class="glyphicon glyphicon-edit"></span> editar
                 </a>
         </li>
         </nav>
 </header>
 
-<div class="compromisso-visualiza-wrapper">
-        <div class="compromisso-visualiza">
+<div id="relatorio-visualiza-wrapper">
+        <div id="relatorio-visualiza">
                 <p><b>Qualificação profissional dos responsáveis pela inspeção:</b> {{relatorio.qualiprof}}</p>
                 <p><b>Os participantes da inspeção estão bem fisicamente e mentalmente?</b> {{relatorio.integridade}}</p>
                 <p><b>Houve diálogo de segurança?</b> {{relatorio.dialogo}}</p>

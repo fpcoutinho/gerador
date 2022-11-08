@@ -2,12 +2,12 @@
 
 {% block content %}
     <header>
-        <div class="meuscompromissosdiv">
+        <div id="meusrelatoriosdiv">
             <h2>Meus Relatórios</h2>
         </div>
         <nav>
             <li>
-                <a class="botao-icon" href="{% url 'relatorio:cria' %}">
+                <a id="botao-icon" href="{% url 'relatorio:cria' %}">
                     <span class="glyphicon glyphicon-plus-sign"></span>
                     Novo Relatório
                 </a>
@@ -21,7 +21,7 @@
             </li>
         </nav>
     </header>
-    <div class="compromissos">
+    <div id="relatorios">
         {% if not relatorios %}
             {% if busca %}
                 <br>
@@ -35,7 +35,7 @@
         {% else %}
             {% for relatorio in relatorios %}
             <a href="{% url 'relatorio:visualiza' rel_id=relatorio.id %}">
-                <div class="compromisso">
+                <div id="relatorio">
                     <p>Data: {{ relatorio.data }}</p>
                     <p>Local: {{ relatorio.local }}</p>
                     <p class="obs">Responsáveis: {{ relatorio.responsaveis }}</p>

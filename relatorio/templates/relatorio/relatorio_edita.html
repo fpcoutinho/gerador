@@ -2,9 +2,9 @@
 
 
 {% block content %}
-        <h2 class="loginheader"><button class="botao-icon" onclick="history.back()">Relatório</button></h2>
-        <div class="compromisso-visualiza-wrapper">
-        <div class="criaCompromisso">
+        <h2 class="loginheader"><button id="botao-icon" onclick="history.back()">Relatório</button></h2>
+        <div id="relatorio-visualiza-wrapper">
+        <div id="criaRelatorio">
                 <form class="site-form" enctype="multipart/form-data" action="" method="post">
                         {% csrf_token %}
                         {{ form.as_p }}

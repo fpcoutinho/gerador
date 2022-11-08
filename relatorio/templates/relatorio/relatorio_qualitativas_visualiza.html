@@ -3,22 +3,22 @@
 {% block content %}
 <header style="margin-inline:5%;">
         <h2>
-                <button class="botao-icon" onclick="history.back()">
+                <button id="botao-icon" onclick="history.back()">
                         <span class="glyphicon glyphicon-circle-arrow-left"></span>
                 </button>
                 Avaliação qualitativa da instalação elétrica
         </h2>
         <nav>
         <li>
-                <a class="botao-icon" href="{% url 'relatorio:editaqualitativas' rel_id=relatorio.id %}">
+                <a id="botao-icon" href="{% url 'relatorio:editaqualitativas' rel_id=relatorio.id %}">
                         <span class="glyphicon glyphicon-edit"></span> editar
                 </a>
         </li>
         </nav>
 </header>
 
-<div class="compromisso-visualiza-wrapper">
-        <div class="compromisso-visualiza">
+<div id="relatorio-visualiza-wrapper">
+        <div id="relatorio-visualiza">
                 <p><b> Há documentação da instalação e esta inclui plantas, esquemas unifilares e outros, detalhes de montagem, memorial descritivo, especificações de componentes, parâmetros de projeto?</b> {{ relatorio.documentacao }}</p>
                 <p><b> O ambiente sofreu alguma reforma e a documentação foi atualizada ou acrescida de algum aditivo de projeto?</b> {{ relatorio.ambientesofreu }}</p>
                 <p><b> A instalação foi inspecionada antes da entrada em funcionamento e existe algum documento atestando esse fato?</b> {{ relatorio.instalacaoinspecionada }}</p>

@@ -3,12 +3,12 @@
 
 {% block content %}
         <h2 class="loginheader">
-            <button class="botao-icon" onclick="history.back()">
+            <button id="botao-icon" onclick="history.back()">
                 <span class="glyphicon glyphicon-circle-arrow-left"></span>
             </button>
         Adicionar Circuito</h2>
-        <div class="compromisso-visualiza-wrapper">
-            <div class="criaCompromisso">
+        <div id="relatorio-visualiza-wrapper">
+            <div id="criaRelatorio">
                 <form class="site-form" action="{% url 'relatorio:addcircuito' rel_id=rel_pai %}" method="post">
                     {% csrf_token %}
                     <table style="border: 0px;">

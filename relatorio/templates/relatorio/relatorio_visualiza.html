@@ -3,28 +3,28 @@
 {% block content %}
 <header style="margin-inline:5%;">
         <h2>
-                <button class="botao-icon" onclick="history.back()">
+                <button id="botao-icon" onclick="history.back()">
                         <span class="glyphicon glyphicon-circle-arrow-left"></span>
                 </button>
                 Meu Relatório
         </h2>
         <nav>
         <li>
-                <a class="botao-icon" href="{% url 'relatorio:exporta' rel_id=relatorio.id %}">
+                <a id="botao-icon" href="{% url 'relatorio:exporta' rel_id=relatorio.id %}">
                         <span class="glyphicon glyphicon-export"></span> exportar
                 </a>
-                <a class="botao-icon" href="{% url 'relatorio:edita' rel_id=relatorio.id %}">
+                <a id="botao-icon" href="{% url 'relatorio:edita' rel_id=relatorio.id %}">
                         <span class="glyphicon glyphicon-edit"></span> editar
                 </a>
-                <a class="botao-icon" href="{% url 'relatorio:deleta' rel_id=relatorio.id %}">
+                <a id="botao-icon" href="{% url 'relatorio:deleta' rel_id=relatorio.id %}">
                         <span class="glyphicon glyphicon-trash"></span> deletar
                 </a>
         </li>
         </nav>
 </header>
 
-<div class="compromisso-visualiza-wrapper">
-        <div class="compromisso-visualiza">
+<div id="relatorio-visualiza-wrapper">
+        <div id="relatorio-visualiza">
                 <p><b>Data:</b> {{ relatorio.data }}</p>
                 <p><b>Local:</b> {{ relatorio.local }}</p>
                 <p><b>Temperatura:</b> {{relatorio.temperatura}} °C</p>
@@ -43,16 +43,16 @@
                 </table>                        
                 <nav>
                         <li>
-                                <a class="botao-icon" href="{% url 'relatorio:addplanejamento' rel_id=relatorio.id %}">
+                                <a id="botao-icon" href="{% url 'relatorio:addplanejamento' rel_id=relatorio.id %}">
                                         <span class="glyphicon glyphicon-list-alt"></span> Avaliação de Planejamento
                                 </a>
-                                <a class="botao-icon" href="{% url 'relatorio:addexternas' rel_id=relatorio.id %}">
+                                <a id="botao-icon" href="{% url 'relatorio:addexternas' rel_id=relatorio.id %}">
                                         <span class="glyphicon glyphicon-list-alt"></span> Avaliação de Influências Externas
                                 </a>
-                                <a class="botao-icon" href="{% url 'relatorio:addqualitativas' rel_id=relatorio.id %}">
+                                <a id="botao-icon" href="{% url 'relatorio:addqualitativas' rel_id=relatorio.id %}">
                                         <span class="glyphicon glyphicon-list-alt"></span> Avaliação Qualitativa
                                 </a>
-                                <a class="botao-icon" href="{% url 'relatorio:addquantitativas' rel_id=relatorio.id %}">
+                                <a id="botao-icon" href="{% url 'relatorio:addquantitativas' rel_id=relatorio.id %}">
                                         <span class="glyphicon glyphicon-list-alt"></span> Avaliação Quantitativa
                                 </a>
                         </li>

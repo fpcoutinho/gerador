@@ -43,7 +43,7 @@ img{
     text-align: center;
 }
 
-.visualizalogin{
+#visualizalogin{
     display: flex;
     align-items: center;
     justify-content: center;
@@ -60,17 +60,17 @@ img{
     display: block;
 }
 
-.login input, .compromisso-visualiza, .criaCompromisso{
+.login input, #relatorio-visualiza, #criaRelatorio{
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
 }
 
 
-.compromissos{
+#relatorios{
     width: 100%;
     display: table;
     border: 1px solid #005b88;
 }
-.compromisso{
+#relatorio{
     width: 350px;
     border-radius: 20px;
     float: left;
@@ -80,14 +80,14 @@ img{
     padding: 20px;
 }
 
-.compromisso-visualiza-wrapper{
+#relatorio-visualiza-wrapper{
     display: flex;
     align-items: center;
     justify-content: center;
     justify-self: center;
 }
 
-.compromisso-visualiza{
+#relatorio-visualiza{
     width: 800px;
     border-radius: 20px;
     align-self: center;
@@ -97,7 +97,7 @@ img{
     padding: 30px;
     font-size: 17px;
 }
-.compromisso-visualiza p{
+#relatorio-visualiza p{
     display: table;
     text-justify: auto;
 }
@@ -168,7 +168,7 @@ nav li{
     display: inline-table;
 }
 
-.botao-icon{
+#botao-icon{
     display: table-cell;
     background: none;
     font-family: Pacifico;
@@ -185,11 +185,11 @@ nav li{
     color: #0082c4;
 }
 
-.meuscompromissosdiv{
+#meusrelatoriosdiv{
     display: inline-table;
 }
 
-.criaCompromisso{
+#criaRelatorio{
     display: block;
     width: 900px;
     border: 1px solid #005b88;
@@ -207,12 +207,12 @@ nav li{
 }
 
 
-.criaCompromisso input, .criaCompromisso textarea, .criaCompromisso select{
+#criaRelatorio input, #criaRelatorio textarea, #criaRelatorio select{
     display:inline-table;
     margin-right: auto;
 }
 
-.criaCompromisso input[value="Criar"], .criaCompromisso input[value="Atualizar"]{
+#criaRelatorio input[value="Criar"], #criaRelatorio input[value="Atualizar"]{
     margin-left: 47%;
     color: #005b88;
     font-family: Pacifico;
