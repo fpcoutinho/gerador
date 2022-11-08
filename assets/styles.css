@@ -95,6 +95,10 @@ img{
     justify-self: center;
 }
 
+#relatorios-lista{
+    width: 80%;
+}
+
 #relatorio-visualiza{
     border-radius: 20px;
     align-self: center;
