@@ -43,7 +43,7 @@
         {% else %}
             {% for relatorio in relatorios %}
             <a href="{% url 'relatorio:visualiza' rel_id=relatorio.id %}">
-                <div id="relatorio">
+                <div id="relatorio" class="container-fluid">
                     <p>Data: {{ relatorio.data }}</p>
                     <p>Local: {{ relatorio.local }}</p>
                     <p class="obs">Responsáveis: {{ relatorio.responsaveis }}</p>

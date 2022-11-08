@@ -289,6 +289,7 @@ nav a{
     color: #005b88;
     background-color: #ffffff;
     border: 0px;
+    float: right;
 }
 
 .btn.btn-default.btn-sm{
