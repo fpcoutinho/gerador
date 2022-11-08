@@ -3,8 +3,8 @@
 
 {% block content %}
         <h2 class="loginheader"><button id="botao-icon" onclick="history.back()">Relatório</button></h2>
-        <div id="relatorio-visualiza-wrapper"  class="container">
-        <div id="criaRelatorio">
+        <div id="relatorio-visualiza-wrapper"  class="container-fluid">
+        <div id="criaRelatorio" class="container-fluid">
                 <form class="site-form" enctype="multipart/form-data" action="" method="post">
                         {% csrf_token %}
                         {{ form.as_p }}
