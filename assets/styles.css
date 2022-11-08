@@ -76,6 +76,8 @@ img{
     margin-left: auto;
     font-size: 17px;
     position: relative;
+    padding-right: 0px;
+    padding-left: 0px;
 }
 #relatorio{
     width: 309px;
@@ -97,6 +99,7 @@ img{
 
 #relatorios-lista{
     width: 80%;
+
 }
 
 #relatorio-visualiza{
@@ -300,7 +303,7 @@ nav a{
 
 .site-form div{
     border: 1px solid #005b88;
-    width: 70%;
+    width: 100%;
     background-color: #f8fcff;
     text-align: center;
     align-items: center;
