@@ -12,7 +12,7 @@ p.obs{
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
-    width: 330px;
+    width: 220px;
     word-wrap: break-word;
     padding-bottom: 1%;
 }
