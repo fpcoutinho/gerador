@@ -1,24 +1,21 @@
 {% extends 'base_layout.html'%}
 
 {% block content %}
-<header style="margin-inline:5%;">
-        <h2>
-                <button id="botao-icon" onclick="history.back()">
-                        <span class="glyphicon glyphicon-circle-arrow-left"></span>
-                </button>
-                Avaliação qualitativa da instalação elétrica
-        </h2>
-        <nav>
-        <li>
-                <a id="botao-icon" href="{% url 'relatorio:editaqualitativas' rel_id=relatorio.id %}">
-                        <span class="glyphicon glyphicon-edit"></span> editar
-                </a>
-        </li>
-        </nav>
-</header>
-
-<div id="relatorio-visualiza-wrapper">
-        <div id="relatorio-visualiza">
+<div id="relatorio-visualiza-wrapper"  class="container-fluid">
+        <div class="container">
+                <h2 style="text-align:center;">Avaliação qualitativa da instalação elétrica</h2>
+                <nav class="navbar navbar-expand-lg justify-content-space-between">        
+                        <button id="botao-icon" class="navbar-brand" onclick="history.back()">
+                                <h2><span class="glyphicon glyphicon-circle-arrow-left"></span></h2>
+                        </button>
+                        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                                <h3><span class="glyphicon glyphicon-menu-hamburger"></span></h3>
+                        </button>
+                        <a id="botao-icon" class="nav-link" href="{% url 'relatorio:edita' rel_id=relatorio.id %}">
+                                <span class="glyphicon glyphicon-edit"></span> editar
+                        </a>
+                </nav>
+        <div id="relatorio-visualiza" class="container-fluid">
                 <p><b> Há documentação da instalação e esta inclui plantas, esquemas unifilares e outros, detalhes de montagem, memorial descritivo, especificações de componentes, parâmetros de projeto?</b> {{ relatorio.documentacao }}</p>
                 <p><b> O ambiente sofreu alguma reforma e a documentação foi atualizada ou acrescida de algum aditivo de projeto?</b> {{ relatorio.ambientesofreu }}</p>
                 <p><b> A instalação foi inspecionada antes da entrada em funcionamento e existe algum documento atestando esse fato?</b> {{ relatorio.instalacaoinspecionada }}</p>
@@ -42,6 +39,7 @@
                 <p><b> Existe fonte alternativa ou de reserva de energia?</b> {{ relatorio.reservadeenergia }}</p>
                 <p><b> Existe fonte de segurança de energia?</b> {{ relatorio.fontseguranca }}</p>
                 <p><b> Há mecanismos para evitar o paralelismo das fontes?</b> {{ relatorio.paralelismo }}</p>
+        </div>
         </div>
 </div>
 

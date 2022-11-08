@@ -65,13 +65,14 @@ img{
 }
 
 
+
 #relatorios{
     width: 100%;
     display: table;
     border: 1px solid #005b88;
 }
 #relatorio{
-    width: 350px;
+    width: 309px;
     border-radius: 20px;
     float: left;
     box-shadow: -2px 3px #005b88bd;
@@ -81,6 +82,7 @@ img{
 }
 
 #relatorio-visualiza-wrapper{
+    width: 80%;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -88,14 +90,16 @@ img{
 }
 
 #relatorio-visualiza{
-    width: 800px;
     border-radius: 20px;
     align-self: center;
     text-align: center;
     border: 2px solid #005b88;
     margin: 40px;
+    margin-top: 5px;
+    margin-left: auto;
     padding: 30px;
     font-size: 17px;
+    position: relative;
 }
 #relatorio-visualiza p{
     display: table;
@@ -132,7 +136,7 @@ a, a:hover, a:visited, .dropdown-item:visited{
     text-decoration: none;
 }
 
-a:hover, .botao-icon:hover{
+a:hover, #botao-icon:hover{
     color: #0082c4;
 }
 
@@ -159,7 +163,13 @@ nav{
     justify-self: end;
 }
 
-nav li{
+.navbar{
+    margin-bottom: 0px;
+    padding-bottom: 0px;
+    margin-top: 3%;
+}
+
+nav a{
     display: inline-block;
     margin-left: 20px;
 }
@@ -174,19 +184,30 @@ nav li{
     font-family: Pacifico;
     color: #005b88;
     cursor: pointer;
-    size-adjust: 2px;
     border-width: 0;
+    justify-self: start;
     cursor: pointer;
-    padding-left: 15px;
+    padding: 5px;
 }
 
+.navbar-collapse{
+    justify-content: flex-end;
+}
 
 .glyphicon:hover{
     color: #0082c4;
 }
 
+.navbar-brand {
+    margin-left: 0px;
+    font-size: 30px;
+    cursor:default;
+}
+
+
 #meusrelatoriosdiv{
     display: inline-table;
+    text-align: center;
 }
 
 #criaRelatorio{

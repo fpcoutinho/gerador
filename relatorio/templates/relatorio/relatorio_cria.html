@@ -3,7 +3,7 @@
 
 {% block content %}
         <h2 class="loginheader">Criar Relatório</h2>
-        <div id="relatorio-visualiza-wrapper">
+        <div id="relatorio-visualiza-wrapper"  class="container">
             <div id="criaRelatorio">
                 <form class="site-form" enctype="multipart/form-data" action="{% url 'relatorio:cria' %}" method="post">
                     {% csrf_token %}

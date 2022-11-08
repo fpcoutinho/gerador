@@ -1,30 +1,38 @@
 {% extends 'base_layout.html'%}
 
 {% block content %}
-<header style="margin-inline:5%;">
-        <h2>
-                <button id="botao-icon" onclick="history.back()">
-                        <span class="glyphicon glyphicon-circle-arrow-left"></span>
-                </button>
-                Meu Relatório
-        </h2>
-        <nav>
-        <li>
-                <a id="botao-icon" href="{% url 'relatorio:exporta' rel_id=relatorio.id %}">
-                        <span class="glyphicon glyphicon-export"></span> exportar
-                </a>
-                <a id="botao-icon" href="{% url 'relatorio:edita' rel_id=relatorio.id %}">
-                        <span class="glyphicon glyphicon-edit"></span> editar
-                </a>
-                <a id="botao-icon" href="{% url 'relatorio:deleta' rel_id=relatorio.id %}">
-                        <span class="glyphicon glyphicon-trash"></span> deletar
-                </a>
-        </li>
-        </nav>
-</header>
-
-<div id="relatorio-visualiza-wrapper">
-        <div id="relatorio-visualiza">
+        
+<div id="relatorio-visualiza-wrapper"  class="container-fluid">
+        <div class="container">
+                <h2 style="text-align:center;">Meu Relatório</h2>
+                <nav class="navbar navbar-expand-lg">        
+                        <button id="botao-icon" class="navbar-brand" onclick="history.back()">
+                                <h2><span class="glyphicon glyphicon-circle-arrow-left"></span></h2>
+                        </button>
+                        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                                <h3><span class="glyphicon glyphicon-menu-hamburger"></span></h3>
+                        </button>
+                        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                                <ul class="navbar-nav ms-auto">
+                                  <li class="nav-item active">
+                                        <a id="botao-icon" class="nav-link" href="{% url 'relatorio:exporta' rel_id=relatorio.id %}">
+                                        <span class="glyphicon glyphicon-export"></span> exportar
+                                        </a>
+                                  </li>
+                                  <li class="nav-item active">
+                                        <a id="botao-icon" class="nav-link" href="{% url 'relatorio:edita' rel_id=relatorio.id %}">
+                                        <span class="glyphicon glyphicon-edit"></span> editar
+                                        </a>
+                                  </li>
+                                  <li class="nav-item active">
+                                        <a id="botao-icon" class="nav-link" href="{% url 'relatorio:deleta' rel_id=relatorio.id %}">
+                                        <span class="glyphicon glyphicon-trash"></span> deletar
+                                        </a>
+                                  </li>
+                                </ul>
+                        </div>
+                </nav>
+        <div id="relatorio-visualiza" class="container-fluid">
                 <p><b>Data:</b> {{ relatorio.data }}</p>
                 <p><b>Local:</b> {{ relatorio.local }}</p>
                 <p><b>Temperatura:</b> {{relatorio.temperatura}} °C</p>
@@ -41,22 +49,21 @@
                 {% endfor %}
                         </tr>
                 </table>                        
-                <nav>
-                        <li>
-                                <a id="botao-icon" href="{% url 'relatorio:addplanejamento' rel_id=relatorio.id %}">
-                                        <span class="glyphicon glyphicon-list-alt"></span> Avaliação de Planejamento
+                <nav class="nav flex-column flex-sm-row">
+                                <a id="botao-icon" class="flex-sm-fill text-sm-center" href="{% url 'relatorio:addplanejamento' rel_id=relatorio.id %}">
+                                        <span class="glyphicon glyphicon-list-alt"></span> Avaliação de<br> Planejamento
                                 </a>
-                                <a id="botao-icon" href="{% url 'relatorio:addexternas' rel_id=relatorio.id %}">
-                                        <span class="glyphicon glyphicon-list-alt"></span> Avaliação de Influências Externas
+                                <a id="botao-icon" class="flex-sm-fill text-sm-center" href="{% url 'relatorio:addexternas' rel_id=relatorio.id %}">
+                                        <span class="glyphicon glyphicon-list-alt"></span> Avaliação de<br> Influências Externas
                                 </a>
-                                <a id="botao-icon" href="{% url 'relatorio:addqualitativas' rel_id=relatorio.id %}">
-                                        <span class="glyphicon glyphicon-list-alt"></span> Avaliação Qualitativa
+                                <a id="botao-icon" class="flex-sm-fill text-sm-center" href="{% url 'relatorio:addqualitativas' rel_id=relatorio.id %}">
+                                        <span class="glyphicon glyphicon-list-alt"></span> Avaliação<br> Qualitativa
                                 </a>
-                                <a id="botao-icon" href="{% url 'relatorio:addquantitativas' rel_id=relatorio.id %}">
-                                        <span class="glyphicon glyphicon-list-alt"></span> Avaliação Quantitativa
+                                <a id="botao-icon" class="flex-sm-fill text-sm-center" href="{% url 'relatorio:addquantitativas' rel_id=relatorio.id %}">
+                                        <span class="glyphicon glyphicon-list-alt"></span> Avaliação<br> Quantitativa
                                 </a>
-                        </li>
                 </nav>
+        </div>
         </div>
 </div>
 

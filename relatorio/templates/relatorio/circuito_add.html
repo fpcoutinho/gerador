@@ -7,7 +7,7 @@
                 <span class="glyphicon glyphicon-circle-arrow-left"></span>
             </button>
         Adicionar Circuito</h2>
-        <div id="relatorio-visualiza-wrapper">
+        <div id="relatorio-visualiza-wrapper"  class="container">
             <div id="criaRelatorio">
                 <form class="site-form" action="{% url 'relatorio:addcircuito' rel_id=rel_pai %}" method="post">
                     {% csrf_token %}

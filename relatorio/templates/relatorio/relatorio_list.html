@@ -1,27 +1,35 @@
 {% extends 'base_layout.html'%}
 
 {% block content %}
-    <header>
-        <div id="meusrelatoriosdiv">
-            <h2>Meus Relatórios</h2>
-        </div>
-        <nav>
-            <li>
-                <a id="botao-icon" href="{% url 'relatorio:cria' %}">
-                    <span class="glyphicon glyphicon-plus-sign"></span>
-                    Novo Relatório
-                </a>
-            </li>
-            <li>
-                <form method=POST action="{% url 'home' %}" class="form-inline">
+    
+    <div id="relatorios-lista" class="container">
+        <nav class="navbar navbar-expand-lg">
+            <a class="navbar-brand" href="#">Meus Relatórios</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+              <h3><span class="glyphicon glyphicon-menu-hamburger"></span></h3>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+              <ul class="nav justify-content-end">
+                <li class="nav-item active">
+                    <a id="botao-icon" class="nav-link" href="{% url 'relatorio:cria' %}">
+                        <span class="glyphicon glyphicon-plus-sign"></span>
+                        Novo Relatório
+                    </a>
+                </li>
+                <li class="nav-item active">
+                  <form method=POST action="{% url 'home' %}" class="form-inline my-2 my-lg-0">
                     {% csrf_token %}
-                    <input class="form-control me-2" type="search" placeholder="Buscar por Local" aria-label="Search" name="busca">
-                    <button class="btn-outline-secondary" id="searchbutton" type="submit"><span class="glyphicon glyphicon-search"></span></button>
-                </form>
-            </li>
-        </nav>
-    </header>
-    <div id="relatorios">
+                    <input class="form-control mr-sm-2" type="search" placeholder="Buscar por Local" aria-label="Search" name="busca">
+                    <button class="btn-outline-secondary" id="searchbutton" type="submit"><i class="glyphicon glyphicon-search"></i></button>
+                  </form>
+                </li>
+              </ul>
+              
+            </div>
+          </nav>
+    
+    
+    <div id="relatorios"  class="container">
         {% if not relatorios %}
             {% if busca %}
                 <br>
@@ -44,4 +52,6 @@
             {% endfor %}
         {% endif %}
         </div>
+    </div>
+</div>
 {% endblock %}
