@@ -90,17 +90,10 @@ img{
 }
 
 #relatorio-visualiza-wrapper{
-    width: 80%;
     display: flex;
     align-items: center;
     justify-content: center;
     justify-self: center;
-}
-
-#relatorios-lista{
-    width: 80%;
-    margin-inline: 0px;
-
 }
 
 #relatorio-visualiza{
