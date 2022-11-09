@@ -151,3 +151,9 @@ MEDIA_URL = 'media/'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 django_heroku.settings(locals())
+
+cloudinary.config( 
+  cloud_name = "hcoothwyy", 
+  api_key = "893388929448972", 
+  api_secret = "kJ_rqeii6JYiLaWwNLB2FTq5pwE" 
+)
