@@ -94,6 +94,11 @@ img{
     align-items: center;
     justify-content: center;
     justify-self: center;
+    padding-inline: 0px;
+}
+
+#visualiza-wrapper-dois{
+    padding-inline: 0px;
 }
 
 #relatorio-visualiza{
