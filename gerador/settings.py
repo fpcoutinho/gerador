@@ -13,6 +13,9 @@ import os.path
 from pathlib import Path
 from django.contrib.messages import constants as messages
 import django_heroku
+import cloudinary
+import cloudinary.uploader
+import cloudinary.api
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -50,6 +53,7 @@ INSTALLED_APPS = [
     "bootstrap4",
     "bootstrap_datepicker_plus",
     "bootstrapform",
+    'cloudinary',
 
 ]
 
