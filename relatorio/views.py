@@ -10,6 +10,7 @@ from django.utils import timezone
 from django.contrib.auth.decorators import login_required
 import os
 from io import BytesIO
+import urllib.request
 from django.http import FileResponse
 from docxtpl import DocxTemplate, InlineImage
 from docx.shared import Mm
@@ -189,7 +190,12 @@ def relatorio_exporta(request, rel_id):
         context.update({('condutor'+numero):circuitos[i].condutor})
         context.update({('corrente'+numero):circuitos[i].corrente})
 
-    fotos = [InlineImage(doc, base + i.img.url, width = Mm(50)) for i in imagens]
+    fotos = []
+    for i in imagens:
+        diretorio = base + (i.img.url).split('/')[-1]
+        urllib.request.urlretrieve(i.img.url, diretorio)
+        fotos.append(InlineImage(doc, diretorio, width = Mm(50)))
+    
     context.update({'imagens':fotos})
 
     doc.render(context)
