@@ -16,9 +16,8 @@
 </head>
 <body>
     <header class="wrapper">
-        <h1><a href="{% url 'home' %}"><img src="{% static 'logo.png' %}" alt="circuito"/>Gerador de Relatórios</a></h1>
-        <nav>
-            <ul style="margin: 40px 0 0 0;">
+        <h1><a href="{% url 'home' %}"><img src="{% static 'logo.png' %}" alt="circuito">Gerador de Relatórios</a></h1>
+        <nav style="margin: 40px 0 0 0;">
                 {% if user.is_authenticated %}
                     <div class="dropdown">
                         <span class="glyphicon glyphicon-user"></span> Bem-vindo, {{ user }}
@@ -38,7 +37,6 @@
                     <a id="botao-icon" href="{% url 'accounts:login' %}">Log in</a>
                     <a id="botao-icon" href="{% url 'accounts:signup' %}">Sign up</a>
                 {% endif %}
-            </ul>
 
         </nav>
     </header>

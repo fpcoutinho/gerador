@@ -175,6 +175,8 @@ nav{
     justify-self: end;
 }
 
+
+
 .navbar{
     margin-bottom: 0px;
     padding-bottom: 0px;
@@ -226,7 +228,6 @@ nav a{
 .navbar-brand {
     margin-left: 0px;
     font-size: 23px;
-    cursor:default;
 }
 
 #meusrelatoriosdiv{
