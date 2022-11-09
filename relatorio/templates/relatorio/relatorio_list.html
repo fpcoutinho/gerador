@@ -19,7 +19,7 @@
                 <li class="nav-item active">
                   <form method=POST action="{% url 'home' %}" class="form-inline my-2 my-lg-0">
                     {% csrf_token %}
-                    <input class="form-control mr-sm-2" type="search" placeholder="Buscar por Local" aria-label="Search" name="busca">
+                    <input class="form-control mr-sm-2" id="buscalocal" type="search" placeholder="Buscar por Local" aria-label="Search" name="busca">
                     <button class="btn-outline-secondary" id="searchbutton" type="submit"><i class="glyphicon glyphicon-search"></i></button>
                   </form>
                 </li>

@@ -9,8 +9,8 @@
                     {% csrf_token %}
                     {{ form.as_p }}
                     <p>
-                    <label for="id_imagens">Imagens:</label>
-                    <input type="file" name="imagens[]" id="id_imagens" multiple>
+                        <label for="id_imagens" class="form-label">Imagens:</label>
+                        <input type="file" class="form-control form-control-lg" name="imagens[]" id="id_imagens" multiple>
                     </p>
                     <input type="submit" value="Criar">
                 </form>

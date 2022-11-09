@@ -109,8 +109,8 @@ img{
     position: relative;
 }
 #relatorio-visualiza p{
-    display: table;
-    text-justify: auto;
+    word-wrap: break-word;
+    text-align: left;
 }
 
 table{
@@ -192,6 +192,13 @@ nav a{
     }
 }
 
+#buscalocal{
+    display: inline-block;
+    width: fit-content;
+}
+
+
+
 #botao-icon{
     background: none;
     font-family: Pacifico;
@@ -231,11 +238,16 @@ nav a{
     padding-left: 3%;
 }
 
+.form-control {
+    padding: 0px;
+    height: 20px;
+    line-height: 2.1;
+}
+
 .site-form input, .site-form textarea, .siteform select{
     color: #0f121f;
     background-color: #f8fcff;
     margin: 20px 10px 10px 0;
-    padding: 10px;
     text-align: center;
 }
 
