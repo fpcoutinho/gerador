@@ -1,6 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
-
+from cloudinary.models import CloudinaryField
 
 class Relatorio(models.Model):
 
@@ -111,4 +111,4 @@ class Circuito(models.Model):
 
 class Imagens(models.Model):
     rel_pai = models.ForeignKey(Relatorio, on_delete=models.CASCADE)
-    img = models.FileField(upload_to='media/', blank=True, null=True)
+    img = CloudinaryField('image')
