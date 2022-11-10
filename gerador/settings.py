@@ -50,9 +50,10 @@ INSTALLED_APPS = [
     'relatorio',
     'crispy_forms',
     'jquery',
-    "bootstrap4",
-    "bootstrap_datepicker_plus",
-    "bootstrapform",
+    'bootstrap5',
+    'bootstrap4',
+    'bootstrap_datepicker_plus',
+    'bootstrapform',
     'cloudinary',
 
 ]
