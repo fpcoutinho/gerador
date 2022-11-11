@@ -4,14 +4,18 @@
 <div id="relatorio-visualiza-wrapper"  class="container-fluid">
         <div id="visualiza-wrapper-dois" class="container" >
                 <h2 style="text-align:center;">Avaliação e planejamento da execução</h3>
-                <nav class="navbar navbar-expand-lg justify-content-space-between">        
-                        <button id="botao-icon" class="navbar-brand" onclick="history.back()">
-                                <h3><span class="glyphicon glyphicon-circle-arrow-left"></span></h3>
-                        </button>
-                        <a id="botao-icon" class="nav-link" href="{% url 'relatorio:editaplanejamento' rel_id=relatorio.id %}">
-                                <span class="glyphicon glyphicon-edit"></span> editar
-                        </a>
-                </nav>
+                        <br>
+                        <nav id="visualiza-nav" class="nav bg-light">        
+                                <div class="container-fluid">
+                                        <ul class="nav align-items-center justify-content-center">
+                                                <li class="nav-item active">
+                                                        <a name="botao-icon" class="nav-link" href="{% url 'relatorio:editaplanejamento' rel_id=relatorio.id %}">
+                                                        <span class="glyphicon glyphicon-edit"></span> editar
+                                                        </a>
+                                                </li>
+                                        </ul>
+                                </div>
+                        </nav>
         <div id="relatorio-visualiza" class="container-fluid">
                 <p><b>Qualificação profissional dos responsáveis pela inspeção:</b> {{relatorio.qualiprof}}</p>
                 <p><b>Os participantes da inspeção estão bem fisicamente e mentalmente?</b> {{relatorio.integridade}}</p>

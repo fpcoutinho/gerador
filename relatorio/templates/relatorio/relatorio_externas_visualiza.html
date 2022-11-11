@@ -4,14 +4,18 @@
 <div id="relatorio-visualiza-wrapper"  class="container-fluid">
         <div id="visualiza-wrapper-dois" class="container" >
                 <h2 style="text-align:center;">Avaliação das influencias externas da instalação elétrica</h3>
-                <nav class="navbar navbar-expand-lg justify-content-space-between">        
-                        <button id="botao-icon" class="navbar-brand" onclick="history.back()">
-                                <h3><span class="glyphicon glyphicon-circle-arrow-left"></span></h3>
-                        </button>
-                        <a id="botao-icon" class="nav-link" href="{% url 'relatorio:editaexternas' rel_id=relatorio.id %}">
-                                <span class="glyphicon glyphicon-edit"></span> editar
-                        </a>
-                </nav>
+                        <br>
+                        <nav id="visualiza-nav" class="nav bg-light">        
+                                <div class="container-fluid">
+                                        <ul class="nav align-items-center justify-content-center">
+                                                <li class="nav-item active">
+                                                        <a name="botao-icon" class="nav-link" href="{% url 'relatorio:editaexternas' rel_id=relatorio.id %}">
+                                                        <span class="glyphicon glyphicon-edit"></span> editar
+                                                        </a>
+                                                </li>
+                                        </ul>
+                                </div>
+                        </nav>
         <div id="relatorio-visualiza" class="container-fluid">
                 <p><b>Temperatura Ambiente: </b> {{relatorio.tempambiente}}</p>
                 <p><b>Condições climáticas do ambiente: </b> {{ relatorio.condambiente }}</p>
@@ -34,7 +38,6 @@
                 <p><b>Natureza dos materiais processados ou armazenados: </b> {{ relatorio.natmatpr }}</p>
                 <p><b>Qual a natureza dos materiais de construção: </b> {{ relatorio.natmatcons }}</p>
                 <p><b>Qual a classificação da estrutura das edificações: </b> {{ relatorio.classestr }}</p>
-                
         </div>
         </div>
 </div>

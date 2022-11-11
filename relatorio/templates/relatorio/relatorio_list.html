@@ -3,7 +3,10 @@
 {% block content %}
     
 <div id="relatorios-lista" class="container-fluid">
-        <nav class="navbar navbar-expand-lg bg-light">
+        <h3 style="text-align:center;" id="relatorios-h3">Meus Relatórios</h3>
+        <br>
+        <!-- navbar da versão desktop -->
+        <nav class="navbar navbar-expand-lg bg-light" id="relatorio-list-desktopnav">
             <a class="navbar-brand" href="#">Meus Relatórios</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
               <h4><span class="glyphicon glyphicon-menu-hamburger"></span></h4>
@@ -11,20 +14,52 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
               <ul class="navbar-nav mr-auto">
                 <li class="nav-item active">
-                    <a id="botao-icon" class="nav-link" href="{% url 'relatorio:cria' %}">
+                    <a name="botao-icon" class="nav-link" href="{% url 'relatorio:cria' %}">
                         <span class="glyphicon glyphicon-plus-sign"></span>
                         Novo Relatório
                     </a>
                 </li>
                 <li class="nav-item active">
-                  <form method=POST action="{% url 'home' %}" class="form-inline my-2 my-lg-0">
-                    {% csrf_token %}
-                    <input class="form-control mr-sm-2" id="buscalocal" type="search" placeholder="Buscar por Local" aria-label="Search" name="busca">
-                    <button class="btn-outline-secondary" id="searchbutton" type="submit"><i class="glyphicon glyphicon-search"></i></button>
-                  </form>
+                  <div class="input-group" id="desktop-busca">
+                    <form method=POST action="{% url 'home' %}" class="form-inline my-2 my-lg-0">
+                      {% csrf_token %}
+                    <input class="form-control border-end-0 border rounded-pill" id="buscalocal" type="search" placeholder="Buscar por Local" aria-label="Search" name="busca">
+                    <span class="input-group-append">
+                        <button class="btn btn-outline-secondary bg-white border-bottom-0 border rounded-pill ms-n5" id="searchbutton" type="submit">
+                          <svg class="bi d-block mx-auto mb-1" width="15" height="13"><use xlink:href="#search"/></svg>
+                        </button>
+                    </span>
+                    </form>
+                  </div>
                 </li>
               </ul>
-              
+            </div>
+          </nav>
+
+        <!-- navbar da versão mobile -->
+          <nav id="relatorio-list-mobilenav" class="nav bg-light">        
+            <div class="container-fluid">
+                    <ul class="nav align-items-center justify-content-center">
+                      <li class="nav-item active">
+                          <a name="botao-icon" class="nav-link" href="{% url 'relatorio:cria' %}">
+                              <span class="glyphicon glyphicon-plus-sign"></span>
+                              Novo
+                          </a>
+                      </li>
+                      <li class="nav-item active">
+                        <div class="input-group">
+                          <form method=POST action="{% url 'home' %}" class="form-inline my-2 my-lg-0">
+                            {% csrf_token %}
+                          <input class="form-control border-end-0 border rounded-pill" id="buscalocal" type="search" placeholder="Buscar por Local" aria-label="Search" name="busca">
+                          <span class="input-group-append">
+                              <button class="btn btn-outline-secondary bg-white border-bottom-0 border rounded-pill ms-n5" id="searchbutton" type="submit">
+                                <svg class="bi d-block mx-auto mb-1" width="15" height="13"><use xlink:href="#search"/></svg>
+                              </button>
+                          </span>
+                          </form>
+                        </div>
+                      </li>
+                    </ul>
             </div>
           </nav>
     
