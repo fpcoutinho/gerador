@@ -1,5 +1,11 @@
 @import url('https://fonts.googleapis.com/css?family=Pacifico');
 
+html, body {
+    padding:0; 
+    margin:0; 
+    height:100%;
+}
+
 body{
     background-color: #ffffff;
     color: #005b88;
@@ -185,8 +191,6 @@ nav a{
     height: 30px;
     padding: 5px;
 }
-
-
 
 #botao-icon{
     background: none;
@@ -375,11 +379,11 @@ svg{
 }
 
 @media (min-width: 320px) {
-    a[name="nav-header"] , .d-flex .d-flex{
-        font-size: 0px;
+    #top-menu{
+        display:none;
     }
-    .d-flex .d-flex img{
-        width: 0px;
+    #header-logo{
+        padding-right: 31px;
     }
 }
 
@@ -387,11 +391,8 @@ svg{
     .bd-placeholder-img-lg {
         font-size: 3.5rem;
     }
-    a[name="nav-header"], .d-flex .d-flex {
-        font-size: inherit;
-    }
-    .d-flex .d-flex img{
-        width: 60px;
+    #top-menu{
+        display:flex;
     }
     .navbar-collapse.collapse {
         display: flex!important;
@@ -402,8 +403,17 @@ svg{
     p.obs{
         width: 270px;
     }
+    footer{
+        display:none;
+    }
 }
 
+footer{position: fixed; bottom: 0; left: 0; right: 0;}
+
+a[name="nav-footer"]{
+    margin-right: 20px;
+    color: #003f5f;
+}
 
 header .container{
     padding-right: 10px;
@@ -411,7 +421,7 @@ header .container{
 }
 
 #headliner{
-    background-color: #003f5f;
+    background-color: #004e75;
 }
 
 .bi {
