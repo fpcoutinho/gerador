@@ -201,7 +201,7 @@ def relatorio_exporta(request, rel_id):
     fotos = []
     for i in imagens:
         img_id = ((i.img.url).split('/')[-1]).split('.')[0]
-        diretorio = base + (i.img.url).split('/')[-1]
+        diretorio = media + (i.img.url).split('/')[-1]
         down_url = cloudinary.utils.cloudinary_url(img_id)[0]
         urllib.request.urlretrieve(down_url, diretorio)
         fotos.append(InlineImage(doc, diretorio, width=Mm(50)))
