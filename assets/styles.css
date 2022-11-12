@@ -1,15 +1,20 @@
 @import url('https://fonts.googleapis.com/css?family=Pacifico');
+@import url('https://fonts.googleapis.com/css?family=Raleway');
 
 html, body {
     padding:0; 
     margin:0; 
-    height:105%;
+    height:120%;
+}
+
+header, footer{
+    font-family: Pacifico;
 }
 
 body{
     background-color: #ffffff;
     color: #005b88;
-    font-family: Pacifico;
+    font-family: Raleway;
     font-size: medium;
 }
 
@@ -63,10 +68,6 @@ img{
     padding: 20px;
     align-items: center;
     display: block;
-}
-
-.login input, #relatorio-visualiza, #criaRelatorio{
-    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
 }
 
 #relatorios{
@@ -161,6 +162,9 @@ td, th{
 .wrapper{
     margin: 0 auto;
     padding: 20px;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
 }
 
 nav{
@@ -180,7 +184,7 @@ nav a{
 
 .nav-item{
     padding-inline: 5px;
-    font-size: 95%;
+    font-size: 90%;
 }
 
 .form-inline {
@@ -196,7 +200,6 @@ nav a{
 
 [name="botao-icon"]{
     background: none;
-    font-family: Pacifico;
     color: #005b88;
     cursor: pointer;
     border-width: 0;
@@ -431,6 +434,9 @@ svg{
     #relatorio-list-mobilenav{
         display: none;
     }
+    body { 
+        height:100%;
+    }
 }
 
 .dropup, #desktop-busca{
@@ -458,6 +464,7 @@ header .container{
 
 #headliner{
     background-color: #004e75;
+    padding-bottom: 0.9rem!important;
 }
 
 .bi {

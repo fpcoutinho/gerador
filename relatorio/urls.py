@@ -19,5 +19,6 @@ urlpatterns = [
     path('addquantitativas/<int:rel_id>/', views.quantitativas_add, name="addquantitativas"),
     path('editaquantitativas/<int:rel_id>/', views.quantitativas_edita, name="editaquantitativas"),
     path('addcircuito/<int:rel_id>/', views.circuito_add, name="addcircuito"),
+    path('downloadimagens/<int:rel_id>/', views.download_imagens, name="downloadimagens"),
 
 ]

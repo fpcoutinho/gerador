@@ -1,3 +1,4 @@
+from http.client import HTTPResponse
 from threading import local
 from django.shortcuts import render
 from django.shortcuts import render, redirect
@@ -10,6 +11,7 @@ from django.utils import timezone
 from django.contrib.auth.decorators import login_required
 import os
 from io import BytesIO
+import zipfile, requests
 import urllib.request
 from django.http import FileResponse
 from docxtpl import DocxTemplate, InlineImage
@@ -201,7 +203,22 @@ def relatorio_exporta(request, rel_id):
     doc.render(context)
     doc.save(byte_io)
     byte_io.seek(0)
-    return FileResponse(byte_io, as_attachment=True, filename=f'generated_{rel_id}.docx')
+    return FileResponse(byte_io, as_attachment=True, filename=f'relatório_{relatorio.local}.docx')
+
+@login_required(login_url="/accounts/login/")
+def download_imagens(request, rel_id):
+    relatorio = Relatorio.objects.get(id=rel_id)
+    imagens = Imagens.objects.filter(rel_pai__pk=rel_id)
+    buffer = BytesIO()
+    zip_file = zipfile.ZipFile(buffer, 'w')
+    for i in imagens:
+        imagem = requests.get(i.img.url)
+        filename = (i.img.url).split('/')[-1]
+        zip_file.writestr(filename, imagem.content)
+    zip_file.close()
+    buffer.seek(0)
+
+    return FileResponse(buffer, as_attachment=True, filename=f'imagens_{relatorio.local}.zip')
 
 @login_required(login_url="/accounts/login/")
 def planejamento_add(request, rel_id):

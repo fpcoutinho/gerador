@@ -24,6 +24,11 @@
                                                 <span class="glyphicon glyphicon-trash"></span> deletar
                                                 </a>
                                         </li>
+                                        <li class="nav-item active">
+                                                <a name="botao-icon" class="nav-link" href="{% url 'relatorio:downloadimagens' rel_id=relatorio.id %}">
+                                                <span class="glyphicon glyphicon-download-alt"></span> baixar imagens
+                                                </a>
+                                        </li>
                                 </ul>
                         </div>
                 </nav>
@@ -36,12 +41,13 @@
                 <br>
 
                 
-                <p><b>Imagens:</b></p>
+                <p><b>Imagens: </b></p>
                 <div style="margin:inherit; border:1px solid #005b88; padding: 5px;">
                 {% for imagem in imagens %}
                                 <a href="{{ imagem.img.url }}" style="padding: 5px;"><img src='{{ imagem.img.url }}'></a>
                 {% endfor %}
-                </div>                        
+                </div>
+                                
                 <nav class="nav flex-column flex-sm-row">
                                 <a name="botao-icon" class="flex-sm-fill text-sm-center" href="{% url 'relatorio:addplanejamento' rel_id=relatorio.id %}">
                                         <span class="glyphicon glyphicon-list-alt"></span> Avaliação de<br> Planejamento
