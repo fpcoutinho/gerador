@@ -1,68 +1,79 @@
 {% extends 'base_layout.html'%}
 
 {% block content %}
-        
-<div id="relatorio-visualiza-wrapper"  class="container-fluid">
+
+<div id="relatorio-visualiza-wrapper" class="container-fluid">
         <div id="visualiza-wrapper-dois" class="container">
                 <h3 style="text-align:center;">Meu Relatório</h3>
                 <br>
-                <nav id="visualiza-nav" class="nav bg-light">        
+                <nav id="visualiza-nav" class="nav bg-light">
                         <div class="container-fluid">
                                 <ul class="nav align-items-center justify-content-center">
                                         <li class="nav-item active">
-                                                <a name="botao-icon" class="nav-link" href="{% url 'relatorio:exporta' rel_id=relatorio.id %}">
-                                                <span class="glyphicon glyphicon-export"></span> exportar
+                                                <a name="botao-icon" class="nav-link"
+                                                        href="{% url 'relatorio:exporta' rel_id=relatorio.id %}">
+                                                        <span class="glyphicon glyphicon-export"></span> exportar
                                                 </a>
                                         </li>
                                         <li class="nav-item active">
-                                                <a name="botao-icon" class="nav-link" href="{% url 'relatorio:edita' rel_id=relatorio.id %}">
-                                                <span class="glyphicon glyphicon-edit"></span> editar
+                                                <a name="botao-icon" class="nav-link"
+                                                        href="{% url 'relatorio:edita' rel_id=relatorio.id %}">
+                                                        <span class="glyphicon glyphicon-edit"></span> editar
                                                 </a>
                                         </li>
                                         <li class="nav-item active">
-                                                <a name="botao-icon" class="nav-link" href="{% url 'relatorio:deleta' rel_id=relatorio.id %}">
-                                                <span class="glyphicon glyphicon-trash"></span> deletar
+                                                <a name="botao-icon" class="nav-link"
+                                                        href="{% url 'relatorio:deleta' rel_id=relatorio.id %}">
+                                                        <span class="glyphicon glyphicon-trash"></span> deletar
                                                 </a>
                                         </li>
                                         <li class="nav-item active">
-                                                <a name="botao-icon" class="nav-link" href="{% url 'relatorio:downloadimagens' rel_id=relatorio.id %}">
-                                                <span class="glyphicon glyphicon-download-alt"></span> baixar imagens
+                                                <a name="botao-icon" class="nav-link"
+                                                        href="{% url 'relatorio:downloadimagens' rel_id=relatorio.id %}">
+                                                        <span class="glyphicon glyphicon-download-alt"></span> baixar
+                                                        imagens
                                                 </a>
                                         </li>
                                 </ul>
                         </div>
                 </nav>
-        <div id="relatorio-visualiza" class="container-fluid">
-                <p><b>Data:</b> {{ relatorio.data }}</p>
-                <p><b>Local:</b> {{ relatorio.local }}</p>
-                <p><b>Temperatura:</b> {{relatorio.temperatura}} °C</p>
-                <p><b>Condições Climáticas:</b> {{relatorio.clima}} </p>
-                <p><b>Responsáveis pela Inspeção:</b>  {{ relatorio.responsaveis }}</p>
-                <br>
+                <div id="relatorio-visualiza" class="container-fluid">
+                        <p><b>Data:</b> {{ relatorio.data }}</p>
+                        <p><b>Local:</b> {{ relatorio.local }}</p>
+                        <p><b>Temperatura:</b> {{relatorio.temperatura}} °C</p>
+                        <p><b>Condições Climáticas:</b> {{relatorio.clima}} </p>
+                        <p><b>Responsáveis pela Inspeção:</b> {{ relatorio.responsaveis }}</p>
+                        <br>
 
-                
-                <p><b>Imagens: </b></p>
-                <div style="margin:inherit; border:1px solid #005b88; padding: 5px;">
-                {% for imagem in imagens %}
-                                <a href="{{ imagem.img.url }}" style="padding: 5px;"><img src='{{ imagem.img.url }}'></a>
-                {% endfor %}
-                </div>
-                                
-                <nav class="nav flex-column flex-sm-row">
-                                <a name="botao-icon" class="flex-sm-fill text-sm-center" href="{% url 'relatorio:addplanejamento' rel_id=relatorio.id %}">
+
+                        <p><b>Imagens: </b></p>
+                        <div class="imagens-container" style="margin:inherit; border:1px solid #005b88; padding: 5px;">
+                                {% for imagem in imagens %}
+                                <a href="{{ imagem.img.url }}" style="padding: 5px;"><img
+                                                src='{{ imagem.img.url }}'></a>
+                                {% endfor %}
+                        </div>
+
+                        <nav class="nav flex-column flex-sm-row">
+                                <a name="botao-icon" class="flex-sm-fill text-sm-center"
+                                        href="{% url 'relatorio:addplanejamento' rel_id=relatorio.id %}">
                                         <span class="glyphicon glyphicon-list-alt"></span> Avaliação de<br> Planejamento
                                 </a>
-                                <a name="botao-icon" class="flex-sm-fill text-sm-center" href="{% url 'relatorio:addexternas' rel_id=relatorio.id %}">
-                                        <span class="glyphicon glyphicon-list-alt"></span> Avaliação de<br> Influências Externas
+                                <a name="botao-icon" class="flex-sm-fill text-sm-center"
+                                        href="{% url 'relatorio:addexternas' rel_id=relatorio.id %}">
+                                        <span class="glyphicon glyphicon-list-alt"></span> Avaliação de<br> Influências
+                                        Externas
                                 </a>
-                                <a name="botao-icon" class="flex-sm-fill text-sm-center" href="{% url 'relatorio:addqualitativas' rel_id=relatorio.id %}">
+                                <a name="botao-icon" class="flex-sm-fill text-sm-center"
+                                        href="{% url 'relatorio:addqualitativas' rel_id=relatorio.id %}">
                                         <span class="glyphicon glyphicon-list-alt"></span> Avaliação<br> Qualitativa
                                 </a>
-                                <a name="botao-icon" class="flex-sm-fill text-sm-center" href="{% url 'relatorio:addquantitativas' rel_id=relatorio.id %}">
+                                <a name="botao-icon" class="flex-sm-fill text-sm-center"
+                                        href="{% url 'relatorio:addquantitativas' rel_id=relatorio.id %}">
                                         <span class="glyphicon glyphicon-list-alt"></span> Avaliação<br> Quantitativa
                                 </a>
-                </nav>
-        </div>
+                        </nav>
+                </div>
         </div>
 </div>
 
