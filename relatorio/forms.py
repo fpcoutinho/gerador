@@ -3,6 +3,7 @@ from django import forms
 from . import models
 from django.forms.widgets import DateTimeInput, RadioSelect, CheckboxSelectMultiple, ClearableFileInput
 from django.utils.safestring import mark_safe
+from django.core.validators import RegexValidator
 
 # Cria e Edita o relatório inicial, apenas com dados simples.
 class FormRelatorioInicial(forms.ModelForm):
@@ -10,7 +11,12 @@ class FormRelatorioInicial(forms.ModelForm):
     clima = forms.CharField(label='Condições Climáticas:')
     temperatura = forms.IntegerField(label='Temperatura (em °C):')
     local= forms.CharField(label="Local da inspeção:", widget= forms.TextInput
-                           (attrs={'placeholder':'Ex: CCHLA-102'}))
+                           (attrs={'placeholder':'Ex: CCHLA-102'}), validators=[
+            RegexValidator(
+                regex='[A-Z]{2,}-[A-Z]{0,}[0-9]{2,}]',
+                message='O local deve seguir o formato "BLOCO-SALA"! Exemplos: CCHLA-102, CI-T02.',
+            ),
+        ])
     responsaveis = forms.CharField(widget=forms.Textarea(attrs={'placeholder': 'Insira os nomes separados por vírgula (,)'}), label='Responsáveis')
 
     class Meta:
