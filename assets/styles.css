@@ -428,47 +428,60 @@ svg {
   }
 }
 
-.ms-n5 {
-  margin-left: -40px;
-}
-
 @media (min-width: 768px) {
   .bd-placeholder-img-lg {
     font-size: 3.5rem;
   }
+
   #top-menu {
     display: flex;
   }
+
   .navbar-collapse.collapse {
     display: flex !important;
   }
+
   #relatorio {
     width: 300px;
   }
+
   p.obs {
     width: 270px;
   }
+
   footer {
     display: none;
   }
-  #relatorios-h3 {
-    font-size: 0px;
+
+  body {
+    height: 100%;
+  }
+}
+
+@media (min-width: 992px) {
+  #relatorio-list-mobilenav {
+    display: none;
+  }
+  #relatorio-list-desktopnav {
+    display: flex;
   }
   .navbar-brand {
     display: inherit;
   }
   #relatorios-h3 {
+    font-size: 0px;
+  }
+  #relatorios-h3 {
     display: none !important;
   }
-  #relatorio-list-desktopnav {
-    display: flex;
-  }
-  #relatorio-list-mobilenav {
-    display: none;
-  }
-  body {
-    height: 100%;
-  }
+}
+
+.ms-n5 {
+  margin-left: -40px;
+}
+
+.ms-n5 {
+  margin-left: -40px;
 }
 
 .dropup,
