@@ -13,7 +13,7 @@ class FormRelatorioInicial(forms.ModelForm):
     local= forms.CharField(label="Local da inspeção:", widget= forms.TextInput
                            (attrs={'placeholder':'Ex: CCHLA-102'}), validators=[
             RegexValidator(
-                regex='[A-Z]{2,}-[A-Z]{0,}[0-9]{2,}]',
+                regex='[A-Z]{2,}-[A-Z]{0,}[0-9]{2,}',
                 message='O local deve seguir o formato "BLOCO-SALA"! Exemplos: CCHLA-102, CI-T02.',
             ),
         ])
