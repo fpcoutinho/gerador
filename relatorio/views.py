@@ -46,7 +46,28 @@ def relatorio_cria(request):
         if form.is_valid():
             usuario = request.user
             relatorios = Relatorio.objects.filter(autor=usuario)
+            bloco = form.cleaned_data.get('local').split('-')
+            bloco = bloco[0]
+            relatorios2 = relatorios.filter(local__contains=bloco)
             instance = form.save(commit=False)
+            if relatorios2:
+                instance.qualiprof = relatorios2[0].qualiprof
+                instance.integridade = relatorios2[0].integridade
+                instance.dialogo = relatorios2[0].dialogo
+                instance.curso_nr = relatorios2[0].curso_nr
+                instance.conferido = relatorios2[0].conferido
+                instance.riscos = relatorios2[0].riscos
+                instance.equipamentos = relatorios2[0].equipamentos
+                instance.desligamento = relatorios2[0].desligamento
+                instance.sinalizacao = relatorios2[0].sinalizacao
+                instance.delimitar_area = relatorios2[0].delimitar_area
+                instance.auxconces = relatorios2[0].auxconces
+                instance.tensao = relatorios2[0].tensao
+                instance.aterramento = relatorios2[0].aterramento
+                instance.altura = relatorios2[0].altura
+                instance.cinto_seg = relatorios2[0].cinto_seg
+                instance.requi_seg = relatorios2[0].requi_seg
+                instance.reavaliacao = relatorios2[0].reavaliacao
             instance.autor = usuario
             instance.save()
             imagens = request.FILES.getlist('imagens[]')

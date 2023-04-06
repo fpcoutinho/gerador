@@ -9,6 +9,8 @@ class FormRelatorioInicial(forms.ModelForm):
     data = forms.DateTimeField(widget=DateTimeInput(attrs={'type': 'datetime-local'}),input_formats='%d/%m/%Y %H:%M', label='Data e Hora da inspeção:')
     clima = forms.CharField(label='Condições Climáticas:')
     temperatura = forms.IntegerField(label='Temperatura (em °C):')
+    local= forms.CharField(label="Local da inspeção:", widget= forms.TextInput
+                           (attrs={'placeholder':'Ex: CCHLA-102'}))
     responsaveis = forms.CharField(widget=forms.Textarea(attrs={'placeholder': 'Insira os nomes separados por vírgula (,)'}), label='Responsáveis')
 
     class Meta:
