@@ -94,8 +94,12 @@ WSGI_APPLICATION = 'gerador.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'dbvu3km8o7dbq',
+        'USER': 'gepohbmbujurhg',
+        'PASSWORD': '89f79164aef905ad765435ebc3790cae9a73c2f12ec8e55c7ebf195eb7a9155d',
+        'HOST': 'ec2-34-197-91-131.compute-1.amazonaws.com',
+        'PORT':  '5432',
     }
 }
 
